@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.2.13 - Feed
+ * # Semantic UI undefined - Feed
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -264,7 +264,7 @@
 .ui.feed > .event > .content .meta a:hover,
 .ui.feed > .event > .content .meta a:hover .icon,
 .ui.feed > .event > .content .meta > .icon:hover {
-  color: rgba(0, 0, 0, 0.95);
+  color: #E71C35;
 }
 
 

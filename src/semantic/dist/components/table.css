@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.2.13 - Table
+ * # Semantic UI undefined - Table
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -270,7 +270,7 @@
 .ui.definition.table tr td.definition {
   background: rgba(0, 0, 0, 0.03);
   font-weight: bold;
-  color: rgba(0, 0, 0, 0.95);
+  color: #E71C35;
   text-transform: '';
   -webkit-box-shadow: '';
           box-shadow: '';
@@ -498,7 +498,7 @@
 .ui.selectable.table tbody tr:hover,
 .ui.table tbody tr td.selectable:hover {
   background: rgba(0, 0, 0, 0.05) !important;
-  color: rgba(0, 0, 0, 0.95) !important;
+  color: #E71C35 !important;
 }
 .ui.selectable.inverted.table tbody tr:hover,
 .ui.inverted.table tbody tr td.selectable:hover {
@@ -615,7 +615,7 @@
 /* Allow striped active hover */
 .ui.striped.selectable.selectable.selectable.table tbody tr.active:hover {
   background: #EFEFEF !important;
-  color: rgba(0, 0, 0, 0.95) !important;
+  color: #E71C35 !important;
 }
 
 /*--------------
@@ -926,7 +926,7 @@
 /* Sorted */
 .ui.sortable.table thead th.sorted {
   background: rgba(0, 0, 0, 0.05);
-  color: rgba(0, 0, 0, 0.95);
+  color: #E71C35;
 }
 .ui.sortable.table thead th.sorted:after {
   display: inline-block;
@@ -935,7 +935,7 @@
 /* Sorted Hover */
 .ui.sortable.table thead th.sorted:hover {
   background: rgba(0, 0, 0, 0.05);
-  color: rgba(0, 0, 0, 0.95);
+  color: #E71C35;
 }
 
 /* Inverted */

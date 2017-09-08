@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.2.13 - Label
+ * # Semantic UI undefined - Label
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -451,12 +451,12 @@ a.ui.label:hover:before {
   background-color: #D0D0D0;
   border-color: #D0D0D0;
   background-image: none;
-  color: rgba(0, 0, 0, 0.95);
+  color: #E71C35;
 }
 .ui.active.label:before {
   background-color: #D0D0D0;
   background-image: none;
-  color: rgba(0, 0, 0, 0.95);
+  color: #E71C35;
 }
 
 /*-------------------
@@ -468,13 +468,13 @@ a.ui.active.label:hover {
   background-color: #C8C8C8;
   border-color: #C8C8C8;
   background-image: none;
-  color: rgba(0, 0, 0, 0.95);
+  color: #E71C35;
 }
 .ui.labels a.active.label:ActiveHover:before,
 a.ui.active.label:ActiveHover:before {
   background-color: #C8C8C8;
   background-image: none;
-  color: rgba(0, 0, 0, 0.95);
+  color: #E71C35;
 }
 
 /*-------------------

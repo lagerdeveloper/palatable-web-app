@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.2.13 - Search
+ * # Semantic UI undefined - Search
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -177,7 +177,7 @@
 .ui.search > .prompt:focus {
   border-color: rgba(34, 36, 38, 0.35);
   background: #FFFFFF;
-  color: rgba(0, 0, 0, 0.95);
+  color: #E71C35;
 }
 
 /*--------------------

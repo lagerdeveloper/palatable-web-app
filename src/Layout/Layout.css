@@ -1,0 +1,18 @@
+.main {
+  margin-top: 50px;
+}
+
+.ui.fixed.menu {
+  background-color: #ffffff;
+}
+
+.ui.vertical.menu .item > i.icon.left {
+  float: none;
+  margin: 0em 1em 0em 0em;
+}
+
+.ui.sidebar {
+  top: 43px;
+  text-align: center;
+  opacity: 0.95;
+}

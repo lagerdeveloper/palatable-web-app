@@ -10,7 +10,7 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <Route exact path='/' component={LayoutContainer} />
+        <Route path='/' component={LayoutContainer} />
       </Router>
     );
   }
