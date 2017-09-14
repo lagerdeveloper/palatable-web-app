@@ -15,6 +15,7 @@ class Layout extends Component {
   constructor(props) {
     super(props);
     this.handleMenuItemClick = this.handleMenuItemClick.bind(this);
+    this.toggleSideBar = this.toggleSideBar.bind(this);
     this.state = {
       activeMenuItem: 'home',
       sideBarVisible: false,
@@ -23,6 +24,10 @@ class Layout extends Component {
 
   handleMenuItemClick(e, { name }) {
     this.setState({ activeMenuItem: name, sideBarVisible: false });
+  }
+
+  toggleSideBar() {
+    this.setState({ sideBarVisible: !this.state.sideBarVisible });
   }
 
   render() {
@@ -36,17 +41,25 @@ class Layout extends Component {
         >
           <Menu.Item
             icon={sideBarVisible ? 'cancel' : 'content'}
-            onClick={() => this.setState({ sideBarVisible: !sideBarVisible })}
+            onClick={this.toggleSideBar}
           />
           <Menu.Menu position='right'>
             <Menu.Item
               as={Link}
+              active={activeMenuItem === 'sign_up'}
               to='sign_up'
               name='sign_up'
+              onClick={this.handleMenuItemClick}
             >
               Sign Up
             </Menu.Item>
-            <Menu.Item as={Link} to='/login' name='login'>
+            <Menu.Item
+              as={Link}
+              active={activeMenuItem === 'login'}
+              to='/login'
+              name='login'
+              onClick={this.handleMenuItemClick}
+            >
               Log In
             </Menu.Item>
           </Menu.Menu>
