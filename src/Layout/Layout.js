@@ -93,7 +93,7 @@ class Layout extends Component {
             Drinks
           </Menu.Item>
         </Sidebar>
-        <Sidebar.Pusher>
+        <Sidebar.Pusher className="main">
           <Container className="main">
             <Routes />
           </Container>
