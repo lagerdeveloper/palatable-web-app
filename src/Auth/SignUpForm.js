@@ -5,7 +5,7 @@ const SignUpForm = (props) => {
   const { handleSubmit } = props;
   return (
     <form onSubmit={handleSubmit}>
-      <Field name='name' component='input' />
+      <Field name='name' component='input' placeholder='Name' />
     </form>
   );
 };
