@@ -1,6 +1,6 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
-import { Form, Input, Button, Grid, Segment } from 'semantic-ui-react';
+import { Form, Input, Button, Segment } from 'semantic-ui-react';
 
 
 const NameInput = ({ input, meta }) => {
@@ -48,18 +48,14 @@ const PasswordInput = ({ input, meta }) => {
 const SignUpForm = (props) => {
   const { handleSubmit } = props;
   return (
-    <Grid textAlign='center' style={{ height: '100%' }} verticalAlign='middle'>
-      <Grid.Column style={{ maxWidth: 450 }}>
-        <Form size='large' onSubmit={handleSubmit}>
-          <Segment raised padded='very'>
-            <Field name='name' component={NameInput} />
-            <Field name='email' component={EmailInput} />
-            <Field name='password' component={PasswordInput} />
-            <Button primary fluid size='large' type='submit'>Sign Up</Button>
-          </Segment>
-        </Form>
-      </Grid.Column>
-    </Grid>
+    <Form size='large' onSubmit={handleSubmit}>
+      <Segment raised padded='very'>
+        <Field name='name' component={NameInput} />
+        <Field name='email' component={EmailInput} />
+        <Field name='password' component={PasswordInput} />
+        <Button primary fluid size='large' type='submit'>Sign Up</Button>
+      </Segment>
+    </Form>
   );
 };
 

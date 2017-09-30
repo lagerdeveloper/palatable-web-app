@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
-import SignUpForm from './Auth/SignUpForm';
+import SignUpContainer from './Auth/SignUpContainer';
 
 const Routes = (props) => {
   return (
@@ -8,7 +8,7 @@ const Routes = (props) => {
       <Route exact path='/' render={() => <p>HOME</p>} />
       <Route path='/drinks' render={() => <p>DRINKS</p>} />
       <Route path='/login' render={() => <p>LOGIN</p>} />
-      <Route path='/sign_up' component={SignUpForm} />
+      <Route path='/sign_up' component={SignUpContainer} />
     </div>
   );
 };
