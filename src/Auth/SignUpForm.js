@@ -3,13 +3,13 @@ import { Field, reduxForm } from 'redux-form';
 import { Form, Input, Button, Segment } from 'semantic-ui-react';
 
 
-const NameInput = ({ input, meta }) => {
+const UsernameInput = ({ input, meta }) => {
   return (
     <Form.Field>
       <Input
         icon='user'
         iconPosition='left'
-        placeholder='Name'
+        placeholder='Username(optional)'
         type='text'
         {...input}
       />
@@ -50,7 +50,7 @@ const SignUpForm = (props) => {
   return (
     <Form size='large' onSubmit={handleSubmit}>
       <Segment raised padded='very'>
-        <Field name='name' component={NameInput} />
+        <Field name='username' component={UsernameInput} />
         <Field name='email' component={EmailInput} />
         <Field name='password' component={PasswordInput} />
         <Button primary fluid size='large' type='submit'>Sign Up</Button>

@@ -11,7 +11,7 @@ class SignUpContainer extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleSubmit({ name, email, password }) {
+  handleSubmit({ username, email, password }) {
   }
 
   render() {
