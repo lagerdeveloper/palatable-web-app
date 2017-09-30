@@ -2,13 +2,15 @@ import React from 'react';
 import { Route } from 'react-router-dom';
 import SignUpContainer from './Auth/SignUpContainer';
 
+const appRoutes = [
+  { exact: true, path: '/', render: () => <p>HOME</p> },
+  { path: '/drinks', render: () => <p>DRINKS</p> },
+  { path: '/login', render: () => <p>LOGIN</p> },
+  { path: '/sign_up', component: SignUpContainer },
+];
+
 const Routes = (props) => {
-  return [
-      <Route exact path='/' render={() => <p>HOME</p>} />,
-      <Route path='/drinks' render={() => <p>DRINKS</p>} />,
-      <Route path='/login' render={() => <p>LOGIN</p>} />,
-      <Route path='/sign_up' component={SignUpContainer} />,
-  ];
+  return appRoutes.map((routeProps, key) => <Route key={key} {...routeProps} />);
 };
 
 export default Routes;
