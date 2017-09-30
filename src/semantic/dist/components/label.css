@@ -451,12 +451,12 @@ a.ui.label:hover:before {
   background-color: #D0D0D0;
   border-color: #D0D0D0;
   background-image: none;
-  color: #E71C35;
+  color: rgba(0, 0, 0, 0.95);
 }
 .ui.active.label:before {
   background-color: #D0D0D0;
   background-image: none;
-  color: #E71C35;
+  color: rgba(0, 0, 0, 0.95);
 }
 
 /*-------------------
@@ -468,13 +468,13 @@ a.ui.active.label:hover {
   background-color: #C8C8C8;
   border-color: #C8C8C8;
   background-image: none;
-  color: #E71C35;
+  color: rgba(0, 0, 0, 0.95);
 }
 .ui.labels a.active.label:ActiveHover:before,
 a.ui.active.label:ActiveHover:before {
   background-color: #C8C8C8;
   background-image: none;
-  color: #E71C35;
+  color: rgba(0, 0, 0, 0.95);
 }
 
 /*-------------------

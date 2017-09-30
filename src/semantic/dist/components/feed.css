@@ -264,7 +264,7 @@
 .ui.feed > .event > .content .meta a:hover,
 .ui.feed > .event > .content .meta a:hover .icon,
 .ui.feed > .event > .content .meta > .icon:hover {
-  color: #E71C35;
+  color: rgba(0, 0, 0, 0.95);
 }
 
 

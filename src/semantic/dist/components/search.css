@@ -177,7 +177,7 @@
 .ui.search > .prompt:focus {
   border-color: rgba(34, 36, 38, 0.35);
   background: #FFFFFF;
-  color: #E71C35;
+  color: rgba(0, 0, 0, 0.95);
 }
 
 /*--------------------

@@ -762,7 +762,7 @@ select.ui.dropdown {
 .ui.dropdown .menu .active.item {
   background: transparent;
   font-weight: bold;
-  color: #E71C35;
+  color: rgba(0, 0, 0, 0.95);
   -webkit-box-shadow: none;
           box-shadow: none;
   z-index: 12;
@@ -776,7 +776,7 @@ select.ui.dropdown {
 /* Menu Item Hover */
 .ui.dropdown .menu > .item:hover {
   background: rgba(0, 0, 0, 0.05);
-  color: #E71C35;
+  color: rgba(0, 0, 0, 0.95);
   z-index: 13;
 }
 
@@ -893,7 +893,7 @@ select.ui.dropdown {
 .ui.dropdown.selected,
 .ui.dropdown .menu .selected.item {
   background: rgba(0, 0, 0, 0.03);
-  color: #E71C35;
+  color: rgba(0, 0, 0, 0.95);
 }
 
 /*--------------------

@@ -105,12 +105,12 @@
   background-image: none;
   -webkit-box-shadow: 0px 0px 0px 1px transparent inset;
           box-shadow: 0px 0px 0px 1px transparent inset;
-  color: #E71C35;
+  color: rgba(0, 0, 0, 0.95);
 }
 .ui.active.button:hover {
   background-color: #C0C1C2;
   background-image: none;
-  color: #E71C35;
+  color: rgba(0, 0, 0, 0.95);
 }
 .ui.active.button:active {
   background-color: #C0C1C2;
@@ -784,7 +784,7 @@
   background: rgba(0, 0, 0, 0.05) !important;
   -webkit-box-shadow: '' !important;
           box-shadow: '' !important;
-  color: #E71C35;
+  color: rgba(0, 0, 0, 0.95);
 }
 .ui.basic.buttons .active.button:hover,
 .ui.basic.active.button:hover {
