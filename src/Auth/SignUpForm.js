@@ -34,6 +34,7 @@ const EmailInput = ({ input, meta }) => {
 const PasswordInput = ({ input, meta }) => {
   return (
     <Form.Field>
+      <p>hello</p>
       <Input
         icon='lock'
         iconPosition='left'
