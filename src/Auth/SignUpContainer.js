@@ -5,6 +5,14 @@ import { Grid } from 'semantic-ui-react';
 
 import SignUpForm from './SignUpForm';
 
+import { signUp } from './actions';
+
+
+function mapStateToProps(state) {
+  return {};
+}
+
+
 class SignUpContainer extends Component {
   constructor(props) {
     super(props);
@@ -12,6 +20,7 @@ class SignUpContainer extends Component {
   }
 
   handleSubmit({ username, email, password }) {
+    this.props.signUp(username, email, password);
   }
 
   render() {
@@ -25,4 +34,4 @@ class SignUpContainer extends Component {
   }
 }
 
-export default connect()(SignUpContainer);
+export default connect(mapStateToProps, { signUp })(SignUpContainer);

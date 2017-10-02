@@ -1,7 +1,9 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import createSagaMiddleware from 'redux-saga';
+import axios from 'axios';
 import reducer from './RootReducer';
 import rootSaga from './RootSaga';
+import LocalStorageManager from './LocalStorageManager';
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -12,12 +14,21 @@ const composeEnhancers =
       // Specify extension’s options like name, actionsBlacklist, actionsCreators, serialize...
     }) : compose;
 
+const initialState = LocalStorageManager.load();
 const store = createStore(
   reducer,
+  initialState,
   composeEnhancers(
     applyMiddleware(sagaMiddleware),
   ),
 );
+
+axios.defaults.headers.common['Content-Type'] = 'application/json';
+store.subscribe(() => {
+  const auth = store.getState().auth;
+  axios.defaults.headers.common['Authorization'] = `Bearer ${auth.jwt}`;
+  LocalStorageManager.save({ auth });
+});
 
 sagaMiddleware.run(rootSaga);
 
