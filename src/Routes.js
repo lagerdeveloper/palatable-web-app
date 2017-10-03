@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import SignUpContainer from './Auth/SignUpContainer';
 import SignInContainer from './Auth/SignInContainer';
 
@@ -11,7 +11,12 @@ const appRoutes = [
 ];
 
 const Routes = (props) => {
-  return appRoutes.map((routeProps, key) => <Route key={key} {...routeProps} />);
+  return (
+    <Switch>
+      {appRoutes.map((routeProps, key) => <Route key={key} {...routeProps} />)}
+      <Route render={() => <p>404 PAGE</p>} />
+    </Switch>
+  );
 };
 
 export default Routes;
