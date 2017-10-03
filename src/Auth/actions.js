@@ -6,3 +6,7 @@ export function signUp(username, email, password) {
     password,
   };
 }
+
+export function logout() {
+  return { type: 'LOGOUT' };
+}

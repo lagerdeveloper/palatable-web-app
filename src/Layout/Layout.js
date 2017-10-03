@@ -6,9 +6,10 @@ import {
   Menu,
   Container,
   Sidebar,
-  Icon,
+  Button,
 } from 'semantic-ui-react';
 
+import Drawer from './Drawer';
 import './Layout.css';
 
 class Layout extends Component {
@@ -31,68 +32,54 @@ class Layout extends Component {
   }
 
   render() {
+    const { logout, authenticated } = this.props;
     const { activeMenuItem, sideBarVisible } = this.state;
+    const authMenuItems = [
+      <Menu.Item as={Button} key={1} onClick={() => logout()}>Logout</Menu.Item>
+    ];
+    const noAuthMenuItems = [
+      <Menu.Item
+        as={Link}
+        key={1}
+        active={activeMenuItem === 'sign_up'}
+        to='sign_up'
+        name='sign_up'
+        onClick={this.handleMenuItemClick}
+      >
+        Sign Up
+      </Menu.Item>,
+      <Menu.Item
+        as={Link}
+        key={2}
+        active={activeMenuItem === 'login'}
+        to='/login'
+        name='login'
+        onClick={this.handleMenuItemClick}
+      >
+        Log In
+      </Menu.Item>
+    ];
+    const SubMenuItems = authenticated ? authMenuItems : noAuthMenuItems;
     return (
       <div>
         <Menu
           borderless
           fixed='top'
-          size='large'
+          size='huge'
         >
           <Menu.Item
             icon={sideBarVisible ? 'cancel' : 'content'}
             onClick={this.toggleSideBar}
           />
           <Menu.Menu position='right'>
-            <Menu.Item
-              as={Link}
-              active={activeMenuItem === 'sign_up'}
-              to='sign_up'
-              name='sign_up'
-              onClick={this.handleMenuItemClick}
-            >
-              Sign Up
-            </Menu.Item>
-            <Menu.Item
-              as={Link}
-              active={activeMenuItem === 'login'}
-              to='/login'
-              name='login'
-              onClick={this.handleMenuItemClick}
-            >
-              Log In
-            </Menu.Item>
+            {SubMenuItems}
           </Menu.Menu>
         </Menu>
-        <Sidebar
-          as={Menu}
-          animation='overlay'
-          className="sidebar"
-          width='thin'
-          visible={sideBarVisible}
-          vertical
-        >
-          <Menu.Item
-            as={Link}
-            to='/'
-            name='home'
-            active={activeMenuItem === 'home'}
-            onClick={this.handleMenuItemClick}
-          >
-            <Icon name='home' className='left' />
-            Home
-          </Menu.Item>
-          <Menu.Item
-            as={Link}
-            to='/drinks'
-            name='drinks'
-            active={activeMenuItem === 'drinks'}
-            onClick={this.handleMenuItemClick}
-          >
-            <Icon name='cocktail' className="left" />
-            Drinks
-          </Menu.Item>
-        </Sidebar>
+        <Drawer
+          activeMenuItem={activeMenuItem}
+          sideBarVisible={sideBarVisible}
+          handleMenuItemClick={this.handleMenuItemClick}
+        />
         <Sidebar.Pusher className="main">
           <Container className="main">
             <Routes />

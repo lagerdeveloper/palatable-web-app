@@ -9,7 +9,10 @@ import { signUp } from './actions';
 
 
 function mapStateToProps(state) {
-  return {};
+  return {
+    fetching: state.auth.fetching,
+    authenticated: state.auth.authenticated,
+  };
 }
 
 
@@ -17,6 +20,18 @@ class SignUpContainer extends Component {
   constructor(props) {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.authenticated) {
+      this.props.history.push('/');
+    }
+  }
+
+  componentWillMount() {
+    if (this.props.authenticated) {
+      this.props.history.goBack();
+    }
   }
 
   handleSubmit({ username, email, password }) {

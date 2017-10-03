@@ -1,6 +1,8 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
+import { Link } from 'react-router-dom';
 import { Form, Input, Button, Segment, Message } from 'semantic-ui-react';
+import './index.css';
 
 
 function validate({ username, email, password }) {
@@ -66,15 +68,16 @@ const PasswordInput = ({ input, meta }) => {
 };
 
 const SignUpForm = (props) => {
-  const { handleSubmit, error } = props;
+  const { handleSubmit, error, fetching } = props;
   return (
-    <Form size='large' onSubmit={handleSubmit}>
+    <Form loading={fetching} size='large' onSubmit={handleSubmit}>
       <Segment raised padded='very'>
-        { error && <Message negative list={error} /> }
+        { error && <Message negative content={error} /> }
         <Field name='username' component={UsernameInput} />
         <Field name='email' component={EmailInput} />
         <Field name='password' component={PasswordInput} />
         <Button primary fluid size='large' type='submit'>Sign Up</Button>
+        <p className='formFooter'>Already have an account? <Link to="/login">Log In</Link> here.</p>
       </Segment>
     </Form>
   );
