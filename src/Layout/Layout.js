@@ -51,12 +51,12 @@ class Layout extends Component {
       <Menu.Item
         as={Link}
         key={2}
-        active={activeMenuItem === 'login'}
-        to='/login'
-        name='login'
+        active={activeMenuItem === 'sign_in'}
+        to='/sign_in'
+        name='sign_in'
         onClick={this.handleMenuItemClick}
       >
-        Log In
+        Sign In
       </Menu.Item>
     ];
     const SubMenuItems = authenticated ? authMenuItems : noAuthMenuItems;

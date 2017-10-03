@@ -5,10 +5,10 @@ import { Form, Input, Button, Segment, Message } from 'semantic-ui-react';
 import './index.css';
 
 
-function validate({ username, email, password }) {
+function validate({ login, password }) {
   let errors = {};
-  if (!email) {
-    errors.email = 'Must provide an email.';
+  if (!login) {
+    errors.login = 'Must provide a username or email.';
   }
   if(!password) {
     errors.password = 'Must provide a password';
@@ -16,31 +16,14 @@ function validate({ username, email, password }) {
   return errors;
 }
 
-const UsernameInput = ({ input, meta }) => {
+const LoginInput = ({ input, meta }) => {
   return (
     <Form.Field>
       <Input
         icon='user'
         iconPosition='left'
-        placeholder='Username(optional)'
+        placeholder='Email or Username'
         type='text'
-        {...input}
-      />
-      { meta.touched && meta.error &&
-        <Message size='small' attached='bottom' negative content={meta.error} />
-      }
-    </Form.Field>
-  );
-};
-
-const EmailInput = ({ input, meta }) => {
-  return (
-    <Form.Field>
-      <Input
-        icon='mail outline'
-        iconPosition='left'
-        placeholder='Email'
-        type='email'
         {...input}
       />
       { meta.touched && meta.error &&
@@ -67,23 +50,22 @@ const PasswordInput = ({ input, meta }) => {
   );
 };
 
-const SignUpForm = (props) => {
+const SignInForm = (props) => {
   const { handleSubmit, error, fetching } = props;
   return (
     <Form loading={fetching} size='large' onSubmit={handleSubmit}>
       <Segment raised padded='very'>
         { error && <Message negative content={error} /> }
-        <Field name='username' component={UsernameInput} />
-        <Field name='email' component={EmailInput} />
+        <Field name='login' component={LoginInput} />
         <Field name='password' component={PasswordInput} />
-        <Button primary fluid size='large' type='submit'>Sign Up</Button>
-        <p className='formFooter'>Already have an account? <Link to="/sign_in">Sign In</Link> here.</p>
+        <Button primary fluid size='large' type='submit'>Sign In</Button>
+        <p className='formFooter'>Dont have an account? <Link to="/sign_up">Sign Up</Link> here.</p>
       </Segment>
     </Form>
   );
 };
 
 export default reduxForm({
-  form: 'sign_up',
+  form: 'sign_in',
   validate,
-})(SignUpForm);
+})(SignInForm);

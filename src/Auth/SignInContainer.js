@@ -4,9 +4,9 @@ import { Redirect } from 'react-router';
 
 import { Grid } from 'semantic-ui-react';
 
-import SignUpForm from './SignUpForm';
+import SignInForm from './SignInForm';
 
-import { signUp } from './actions';
+import { signIn } from './actions';
 
 
 function mapStateToProps(state) {
@@ -17,29 +17,28 @@ function mapStateToProps(state) {
 }
 
 
-class SignUpContainer extends Component {
+class SignInContainer extends Component {
   constructor(props) {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleSubmit({ username, email, password }) {
-    this.props.signUp(username, email, password);
+  handleSubmit({ login, password }) {
+    this.props.signIn(login, password);
   }
 
   render() {
-    //Redirect to home screen if the user is authenticated
     if (this.props.authenticated) {
       return <Redirect to='/' />;
     }
     return (
       <Grid textAlign='center' verticalAlign='middle' style={{ height: '100%' }}>
         <Grid.Column style={{ maxWidth: 450 }}>
-          <SignUpForm onSubmit={this.handleSubmit} {...this.props} />
+          <SignInForm onSubmit={this.handleSubmit} {...this.props} />
         </Grid.Column>
       </Grid>
     );
   }
 }
 
-export default connect(mapStateToProps, { signUp })(SignUpContainer);
+export default connect(mapStateToProps, { signIn })(SignInContainer);

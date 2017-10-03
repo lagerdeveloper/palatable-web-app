@@ -6,6 +6,12 @@ export default (prevState = { fetching: false, authenticated: false }, action) =
       return { fetching: false, jwt: action.jwt, authenticated: true };
     case 'SIGN_UP_FAILURE':
       return { fetching: false, error: action.error, authenticated: false };
+    case 'SIGN_IN':
+      return { fetching: true };
+    case 'SIGN_IN_SUCCESS':
+      return { fetching: false, jwt: action.jwt, authenticated: true };
+    case 'SIGN_IN_FAILURE':
+      return { fetching: false, authenticated: false, error: action.error };
     case 'LOGOUT':
       return { fetching: false, authenticated: false };
     default:
