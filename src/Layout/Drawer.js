@@ -4,16 +4,21 @@ import { Link } from 'react-router-dom';
 import './Layout.css';
 
 const Drawer = (props) => {
-  const { sideBarVisible, activeMenuItem, handleMenuItemClick } = props;
+  const { toggleSideBar, sideBarVisible, activeMenuItem, handleMenuItemClick } = props;
   return (
     <Sidebar
       as={Menu}
       animation='overlay'
-      className="sidebar"
-      width='thin'
+      className="drawer"
+      size='huge'
       visible={sideBarVisible}
       vertical
     >
+      <Menu.Item
+        icon='remove'
+        onClick={toggleSideBar}
+        style={{ height: 45.69 }}
+      />
       <Menu.Item
         as={Link}
         to='/'

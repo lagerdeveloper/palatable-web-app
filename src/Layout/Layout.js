@@ -6,7 +6,7 @@ import {
   Menu,
   Container,
   Sidebar,
-  Button,
+  Dropdown,
 } from 'semantic-ui-react';
 
 import Drawer from './Drawer';
@@ -34,8 +34,19 @@ class Layout extends Component {
   render() {
     const { logout, authenticated } = this.props;
     const { activeMenuItem, sideBarVisible } = this.state;
+    const authDropdownOptions = [
+      { key: 'account', text: 'Account' },
+      { key: 'sign-out', text: 'Sign Out', onClick: () => logout() },
+    ];
     const authMenuItems = [
-      <Menu.Item as={Button} key={1} onClick={() => logout()}>Logout</Menu.Item>
+      <Menu.Item icon='plus' key={1} />,
+      <Dropdown
+        key={2}
+        item
+        icon={null}
+        trigger={<span>Alex Lagerman</span>}
+        options={authDropdownOptions}
+      />
     ];
     const noAuthMenuItems = [
       <Menu.Item
@@ -68,7 +79,7 @@ class Layout extends Component {
           size='huge'
         >
           <Menu.Item
-            icon={sideBarVisible ? 'cancel' : 'content'}
+            icon='content'
             onClick={this.toggleSideBar}
           />
           <Menu.Menu position='right'>
@@ -79,8 +90,9 @@ class Layout extends Component {
           activeMenuItem={activeMenuItem}
           sideBarVisible={sideBarVisible}
           handleMenuItemClick={this.handleMenuItemClick}
+          toggleSideBar={this.toggleSideBar}
         />
-        <Sidebar.Pusher className="main">
+        <Sidebar.Pusher dimmed className="main">
           <Container className="main">
             <Routes />
           </Container>

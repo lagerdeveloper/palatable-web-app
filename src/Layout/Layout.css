@@ -12,7 +12,11 @@
   margin: 0em 1em 0em 0em;
 }
 
-.ui.sidebar {
-  top: 46px;
+.ui.vertical.menu .item>i.icon {
+  float: left;
+  margin: 0em 0em 0em 0em;
+}
+
+.ui.drawer {
   text-align: center;
 }
