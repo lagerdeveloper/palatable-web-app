@@ -16,7 +16,11 @@ function signInRequest({ login, password }) {
       // The request was made and the server responded with a status code
       // that falls out of the range of 2xx
       console.log(error.response.data.errors);
-      return { errors: error.response.data.errors };
+      if (typeof(error.response.data.errors) === 'object') {
+        return { errors: error.response.data.errors };
+      }
+      const errorObject = { _error: error.response.data.errors };
+      return { errors: errorObject };
     } else if (error.request) {
       // The request was made but no response was received
       // `error.request` is an instance of XMLHttpRequest in the browser and an instance of

@@ -77,7 +77,7 @@ const SignUpForm = (props) => {
         <Field name='email' component={EmailInput} />
         <Field name='password' component={PasswordInput} />
         <Button primary fluid size='large' type='submit'>Sign Up</Button>
-        <p className='formFooter'>Already have an account? <Link to="/sign_in">Sign In</Link> here.</p>
+        <p className='formFooter'>Already have an account? <Link to="/sign_in">Sign In</Link></p>
       </Segment>
     </Form>
   );
