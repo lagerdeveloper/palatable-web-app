@@ -6,6 +6,7 @@ import Layout from './Layout';
 function mapStateToProps(state) {
   return {
     authenticated: state.auth.authenticated,
+    login: state.auth.login,
   };
 }
 

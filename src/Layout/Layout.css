@@ -8,8 +8,7 @@
 }
 
 .ui.vertical.menu .item > i.icon.left {
-  float: none;
-  margin: 0em 1em 0em 0em;
+  float: left;
 }
 
 .ui.vertical.menu .item>i.icon {

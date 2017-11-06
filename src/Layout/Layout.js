@@ -32,7 +32,7 @@ class Layout extends Component {
   }
 
   render() {
-    const { logout, authenticated } = this.props;
+    const { logout, authenticated, login } = this.props;
     const { activeMenuItem, sideBarVisible } = this.state;
     const authDropdownOptions = [
       { key: 'account', text: 'Account' },
@@ -44,7 +44,7 @@ class Layout extends Component {
         key={2}
         item
         icon={null}
-        trigger={<span>Alex Lagerman</span>}
+        trigger={<span>{login}</span>}
         options={authDropdownOptions}
       />
     ];

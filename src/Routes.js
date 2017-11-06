@@ -5,7 +5,7 @@ import SignInContainer from './Auth/SignInContainer';
 
 const appRoutes = [
   { exact: true, path: '/', render: () => <p>HOME</p> },
-  { path: '/drinks', render: () => <p>DRINKS</p> },
+  { path: '/cocktails', render: () => <p>COCKTAILS</p> },
   { path: '/sign_in', component: SignInContainer },
   { path: '/sign_up', component: SignUpContainer },
 ];

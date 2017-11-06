@@ -31,13 +31,13 @@ const Drawer = (props) => {
       </Menu.Item>
       <Menu.Item
         as={Link}
-        to='/drinks'
-        name='drinks'
-        active={activeMenuItem === 'drinks'}
+        to='/cocktails'
+        name='cocktails'
+        active={activeMenuItem === 'cocktails'}
         onClick={handleMenuItemClick}
       >
         <Icon name='cocktail' className="left" />
-        Drinks
+        Cocktails
       </Menu.Item>
     </Sidebar>
   );

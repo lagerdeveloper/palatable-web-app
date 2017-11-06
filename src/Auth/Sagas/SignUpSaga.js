@@ -38,7 +38,7 @@ function* signUpGenerator(action) {
     errors = data.errors;
     yield put({ type: 'SIGN_UP_FAILURE', error: errors });
   } else {
-    yield put({ type: 'SIGN_UP_SUCCESS', jwt: data.jwt });
+    yield put({ type: 'SIGN_UP_SUCCESS', jwt: data.jwt, login: data.login });
   }
   yield put(stopSubmit('sign_up', errors));
 }

@@ -43,7 +43,7 @@ function* signInGenerator(action) {
     errors = data.errors;
     yield put({ type: 'SIGN_IN_FAILURE', error: errors });
   } else {
-    yield put({ type: 'SIGN_IN_SUCCESS', jwt: data.jwt });
+    yield put({ type: 'SIGN_IN_SUCCESS', jwt: data.jwt, login: data.login });
   }
   yield put(stopSubmit('sign_in', errors));
 }
