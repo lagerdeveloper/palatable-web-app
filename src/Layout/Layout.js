@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Routes from '../Routes';
+import logo from '../Images/palatable_red_logo.svg';
 
 import {
   Menu,
   Container,
   Sidebar,
   Dropdown,
+  Image,
 } from 'semantic-ui-react';
 
 import Drawer from './Drawer';
@@ -82,6 +84,9 @@ class Layout extends Component {
             icon='content'
             onClick={this.toggleSideBar}
           />
+          <Menu.Item>
+            <Image src={logo} />
+          </Menu.Item>
           <Menu.Menu position='right'>
             {SubMenuItems}
           </Menu.Menu>
