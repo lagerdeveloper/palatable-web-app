@@ -19,6 +19,7 @@ class Layout extends Component {
     super(props);
     this.handleMenuItemClick = this.handleMenuItemClick.bind(this);
     this.toggleSideBar = this.toggleSideBar.bind(this);
+    this.hideSideBar = this.hideSideBar.bind(this);
     this.state = {
       activeMenuItem: 'home',
       sideBarVisible: false,
@@ -31,6 +32,10 @@ class Layout extends Component {
 
   toggleSideBar() {
     this.setState({ sideBarVisible: !this.state.sideBarVisible });
+  }
+
+  hideSideBar() {
+    this.setState({ sideBarVisible: false });
   }
 
   render() {
@@ -97,7 +102,7 @@ class Layout extends Component {
           handleMenuItemClick={this.handleMenuItemClick}
           toggleSideBar={this.toggleSideBar}
         />
-        <Sidebar.Pusher dimmed className="main">
+        <Sidebar.Pusher className="main" onClick={this.hideSideBar}>
           <Container className="main">
             <Routes />
           </Container>
