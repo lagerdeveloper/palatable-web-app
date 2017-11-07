@@ -1,5 +1,5 @@
 .main {
-  margin-top: 50px;
+  margin-top: 60px;
   height: 100%;
 }
 
@@ -7,15 +7,17 @@
   background-color: #ffffff;
 }
 
-.ui.vertical.menu .item > i.icon.left {
-  float: left;
-}
-
 .ui.vertical.menu .item>i.icon {
   float: left;
-  margin: 0em 0em 0em 0em;
+  margin-right: 2em;
+  margin-left: 0;
 }
 
 .ui.drawer {
   text-align: center;
+}
+
+.ui.vertical.menu .removeIcon {
+  display: flex;
+  align-items: center;
 }

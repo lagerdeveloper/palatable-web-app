@@ -1,6 +1,7 @@
 import React from 'react';
-import { Sidebar, Menu, Icon } from 'semantic-ui-react';
+import { Sidebar, Menu, Icon, Image } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
+import logo from '../Images/palatable_red_logo.svg';
 import './Layout.css';
 
 const Drawer = (props) => {
@@ -15,10 +16,13 @@ const Drawer = (props) => {
       vertical
     >
       <Menu.Item
-        icon='remove'
+        className='removeIcon'
         onClick={toggleSideBar}
-        style={{ height: 45.69 }}
-      />
+        style={{ height: 59.69 }}
+      >
+        <Icon name='remove' className='left' />
+        <Image src={logo} />
+      </Menu.Item>
       <Menu.Item
         as={Link}
         to='/'
