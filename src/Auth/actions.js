@@ -1,17 +1,8 @@
-export function signUp(username, email, password) {
+export function authSuccess(login, jwt) {
   return {
-    type: 'SIGN_UP',
-    username,
-    email,
-    password,
-  };
-}
-
-export function signIn(login, password) {
-  return {
-    type: 'SIGN_IN',
+    type: 'AUTH_SUCCESS',
     login,
-    password,
+    jwt,
   };
 }
 

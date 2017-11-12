@@ -68,9 +68,9 @@ const PasswordInput = ({ input, meta }) => {
 };
 
 const SignUpForm = (props) => {
-  const { handleSubmit, error, fetching } = props;
+  const { handleSubmit, error, submitting } = props;
   return (
-    <Form loading={fetching} size='large' onSubmit={handleSubmit}>
+    <Form loading={submitting} size='large' onSubmit={handleSubmit}>
       <Segment raised padded='very'>
         { error && <Message negative content={error} /> }
         <Field name='username' component={UsernameInput} />
