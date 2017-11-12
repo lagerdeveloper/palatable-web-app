@@ -3,7 +3,9 @@
   "routes": {
     "/**": "index.html"
   },
-  "proxy": {
-    "origin": "${API_URL}"
+  "proxies": {
+    "": {
+      "origin": "${API_URL}"  
+    }
   }
 }
