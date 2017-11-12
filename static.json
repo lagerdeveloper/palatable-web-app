@@ -3,5 +3,9 @@
   "routes": {
     "/**": "index.html"
   },
-  "proxy": "https://palatable-api.herokuapp.com/api/"
+  "proxies": {
+    "*": {
+      "origin": "${API_URL}"
+    }
+  }
 }
