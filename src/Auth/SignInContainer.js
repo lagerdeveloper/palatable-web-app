@@ -26,7 +26,7 @@ class SignInContainer extends Component {
 
   handleSubmit({ login, password }) {
     // this.props.signIn(login, password);
-    return axios.post('/api/sign_in', {
+    return axios.post('sign_in', {
       auth: {
         login,
         password,
