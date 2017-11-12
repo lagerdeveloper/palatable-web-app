@@ -22,7 +22,7 @@ const store = createStore(
     applyMiddleware(sagaMiddleware),
   ),
 );
-//axios.defaults.baseURL = process.env.NODE_ENV === 'production' ? 'https://palatable-api.herokuapp.com/api/' : '';
+axios.defaults.baseURL = process.env.NODE_ENV === 'production' ? 'https://palatable-api.herokuapp.com/api/' : '';
 axios.defaults.headers.common['Content-Type'] = 'application/json';
 store.subscribe(() => {
   const auth = store.getState().auth;
