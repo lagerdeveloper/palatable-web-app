@@ -46,7 +46,7 @@ class Layout extends Component {
       { key: 'sign-out', text: 'Sign Out', onClick: () => logout() },
     ];
     const authMenuItems = [
-      <Menu.Item icon='plus' key={1} />,
+      <Menu.Item as={Link} to='recipes/new' icon='plus' key={1} />,
       <Dropdown
         key={2}
         item
