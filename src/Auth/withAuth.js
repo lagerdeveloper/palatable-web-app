@@ -13,7 +13,10 @@ export default (ComponentToAuthorize) => {
     class AuthorizedComponent extends Component {
       render() {
         if (!this.props.authenticated) {
-          return <Redirect to='/' />;
+          return <Redirect to={{
+            pathname: '/sign_in',
+            state: { from: this.props.location },
+          }} />;
         }
         return <ComponentToAuthorize {...this.props} />;
       }

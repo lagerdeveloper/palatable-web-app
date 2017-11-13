@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { has } from 'lodash/object';
 import { SubmissionError } from 'redux-form';
 import { Redirect } from 'react-router';
 import axios from 'axios';
@@ -62,7 +63,8 @@ class SignInContainer extends Component {
 
   render() {
     if (this.props.authenticated) {
-      return <Redirect to='/' />;
+      const redirectPath = has(this.props.location.state, 'from') ? this.props.location.state.from : '/';
+      return <Redirect to={redirectPath} />;
     }
     return (
       <Grid textAlign='center' verticalAlign='middle' style={{ height: '100%' }}>
