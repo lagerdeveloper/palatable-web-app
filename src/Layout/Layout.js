@@ -9,6 +9,8 @@ import {
   Sidebar,
   Dropdown,
   Image,
+  Icon,
+  Popup
 } from 'semantic-ui-react';
 
 import Drawer from './Drawer';
@@ -46,7 +48,18 @@ class Layout extends Component {
       { key: 'sign-out', text: 'Sign Out', onClick: () => logout() },
     ];
     const authMenuItems = [
-      <Menu.Item as={Link} to='recipes/new' icon='plus' key={1} />,
+      <Popup
+        trigger={
+          <Menu.Item
+            as={Link}
+            to='/recipes/new'
+            icon='add'
+            key={1}
+          />
+        }
+      >
+        Add a new recipe
+      </Popup>,
       <Dropdown
         key={2}
         item
