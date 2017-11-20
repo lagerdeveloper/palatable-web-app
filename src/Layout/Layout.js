@@ -57,9 +57,8 @@ class Layout extends Component {
             key={1}
           />
         }
-      >
-        Add a new recipe
-      </Popup>,
+        content='Add a recipe'
+      />,
       <Dropdown
         key={2}
         item
