@@ -1,3 +1,11 @@
 .formFooter {
   margin-top: 10px;
 }
+
+.sign-up-container {
+  height: calc(100% - 60px);
+}
+
+.sign-in-container {
+  height: calc(100% - 60px);
+}

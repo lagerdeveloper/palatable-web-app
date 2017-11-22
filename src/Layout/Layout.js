@@ -54,10 +54,10 @@ class Layout extends Component {
             as={Link}
             to='/recipes/new'
             icon='add'
-            key={1}
           />
         }
         content='Add a recipe'
+        key={1}
       />,
       <Dropdown
         key={2}

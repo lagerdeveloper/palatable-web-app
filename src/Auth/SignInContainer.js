@@ -67,7 +67,7 @@ class SignInContainer extends Component {
       return <Redirect to={redirectPath} />;
     }
     return (
-      <Grid textAlign='center' verticalAlign='middle' style={{ height: '100%' }}>
+      <Grid textAlign='center' verticalAlign='middle' className='sign-in-container'>
         <Grid.Column style={{ maxWidth: 450 }}>
           <SignInForm onSubmit={this.handleSubmit} {...this.props} />
         </Grid.Column>
