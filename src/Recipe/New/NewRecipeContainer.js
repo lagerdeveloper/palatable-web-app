@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import NewRecipeForm from './NewRecipeForm';
 import './index.css'
 
 class NewRecipeContainer extends Component {
@@ -9,7 +10,7 @@ class NewRecipeContainer extends Component {
   render() {
     return (
       <div className="new-recipe-container">
-        <p>New Recipe Container</p>
+        <NewRecipeForm />
       </div>
     );
   }
