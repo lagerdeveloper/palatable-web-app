@@ -6,5 +6,11 @@
 }
 
 .recipe-info-container {
-  min-width: 500px;
+  width: 700px;
+}
+
+@media only screen and (max-width: 768px) {
+  .recipe-info-container {
+      width: 500px;
+  }
 }
