@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import NewRecipeForm from './NewRecipeForm';
-import './index.css'
 
 class NewRecipeContainer extends Component {
   constructor(props) {
@@ -8,11 +7,7 @@ class NewRecipeContainer extends Component {
   }
 
   render() {
-    return (
-      <div className="new-recipe-container">
-        <NewRecipeForm />
-      </div>
-    );
+    return <NewRecipeForm />;
   }
 }
 

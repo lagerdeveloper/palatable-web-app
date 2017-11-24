@@ -1,0 +1,93 @@
+import React from 'react';
+import { Field, reduxForm } from 'redux-form';
+import { Form, Input, Label, Dropdown, Header } from 'semantic-ui-react';
+import { capitalize } from 'lodash/string';
+
+import './index.css';
+
+
+const Name = ({ input, meta }) => (
+  <Form.Field>
+    <Input
+      placeholder='Recipe Title'
+      {...input}
+    />
+  </Form.Field>
+);
+
+const Description = ({ input, meta }) => (
+  <Form.TextArea
+    autoHeight
+    placeholder='Description'
+    {...input}
+  />
+);
+
+const Servings = ({ input, meta }) => (
+  <Form.Field>
+    <Input
+      placeholder="Servings (Must be a number)"
+      {...input}
+    />
+  </Form.Field>
+);
+
+const CookTime = ({ input, meta }) => (
+  <Form.Field>
+    <Input
+      placeholder="Cook Time 20 minutes"
+    />
+  </Form.Field>
+);
+
+const RecipeType = ({ input, meta }) => {
+  const recipeTypes = [
+    'appetizer',
+    'breakfast',
+    'brunch',
+    'cocktail',
+    'dessert',
+    'dinner',
+    'lunch',
+  ];
+  return (
+    <Form.Field>
+      <Dropdown
+        onChange={(e, data) => input.onChange(data.value)}
+        options={recipeTypes.map((type, i) => ({
+          key: i,
+          text: capitalize(type),
+          value: type,
+        }))}
+        placeholder='Recipe Type'
+        selection
+        value={input.value}
+      />
+    </Form.Field>
+  );
+};
+
+
+const RecipeInfo = (props) => {
+  const { handleSubmit } = props;
+  return (
+    <div className='recipe-info-container'>
+      <Header as='h2' textAlign='center'>New Recipe</Header>
+      <Form onSubmit={handleSubmit}>
+        <Field name='name' component={Name} />
+        <Form.Group widths='equal'>
+          <Field name='servings' component={Servings} />
+          <Field name='cook_time' component={CookTime} />
+          <Field name='category' component={RecipeType} />
+        </Form.Group>
+        <Field name='description' component={Description} />
+      </Form>
+    </div>
+  );
+};
+
+export default reduxForm({
+  form: 'new_recipe',
+  destroyOnUnmount: false,
+  forceUnregisterOnUnmount: true,
+})(RecipeInfo);

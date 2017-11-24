@@ -4,3 +4,7 @@
   align-items: center;
   height: calc(100% - 60px);
 }
+
+.recipe-info-container {
+  min-width: 500px;
+}
