@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { destroy } from 'redux-form';
 import { Link } from 'react-router-dom';
 import Routes from '../Routes';
 import logo from '../Images/palatable_red_logo.svg';
@@ -22,6 +23,7 @@ class Layout extends Component {
     this.handleMenuItemClick = this.handleMenuItemClick.bind(this);
     this.toggleSideBar = this.toggleSideBar.bind(this);
     this.hideSideBar = this.hideSideBar.bind(this);
+    this.logout = this.logout.bind(this);
     this.state = {
       activeMenuItem: 'home',
       sideBarVisible: false,
@@ -40,12 +42,17 @@ class Layout extends Component {
     this.setState({ sideBarVisible: false });
   }
 
+  logout() {
+    this.props.destroy('new_recipe');
+    this.props.logout();
+  }
+
   render() {
-    const { logout, authenticated, login } = this.props;
+    const { authenticated, login } = this.props;
     const { activeMenuItem, sideBarVisible } = this.state;
     const authDropdownOptions = [
       { key: 'account', text: 'Account' },
-      { key: 'sign-out', text: 'Sign Out', onClick: () => logout() },
+      { key: 'sign-out', text: 'Sign Out', onClick: this.logout },
     ];
     const authMenuItems = [
       <Popup

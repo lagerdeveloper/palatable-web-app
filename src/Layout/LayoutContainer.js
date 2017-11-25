@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { destroy } from 'redux-form';
 import { logout } from '../Auth/actions';
 import Layout from './Layout';
 
@@ -14,4 +15,4 @@ const LayoutContainer = (props) => {
   return <Layout {...props} />;
 };
 
-export default connect(mapStateToProps, { logout })(LayoutContainer);
+export default connect(mapStateToProps, { logout, destroy })(LayoutContainer);
