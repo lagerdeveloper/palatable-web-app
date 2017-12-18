@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { destroy } from 'redux-form';
 import { Link } from 'react-router-dom';
 import Routes from '../Routes';
 import logo from '../Images/palatable_red_logo.svg';
@@ -10,7 +9,6 @@ import {
   Sidebar,
   Dropdown,
   Image,
-  Icon,
   Popup
 } from 'semantic-ui-react';
 

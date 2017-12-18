@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Segment, Header } from 'semantic-ui-react';
 import RecipeInfo from './RecipeInfo';
+import Ingredients from './Ingredients';
 import './index.css';
 
 
@@ -26,10 +27,10 @@ class NewRecipeForm extends Component {
     const { section } = this.state;
     switch(section) {
       case 1:
-        return <RecipeInfo />;
+        return <RecipeInfo onSubmit={this.nextSection} />;
         break;
       case 2:
-        return <p>Section 2</p>;
+        return <Ingredients />;
         break;
       default:
         return <p>AN ERROR OCCURED</p>;
@@ -39,9 +40,7 @@ class NewRecipeForm extends Component {
   render() {
     return (
       <div className='new-recipe-container'>
-        <Segment>
-          { this.renderSection() }
-        </Segment>
+        { this.renderSection() }
       </div>
     );
   }

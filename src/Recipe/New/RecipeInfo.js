@@ -1,6 +1,6 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
-import { Form, Input, Label, Dropdown, Header } from 'semantic-ui-react';
+import { Form, Input, Label, Dropdown, Header, Button, Icon } from 'semantic-ui-react';
 import { capitalize } from 'lodash/string';
 
 import './index.css';
@@ -26,7 +26,7 @@ const Description = ({ input, meta }) => (
 const Servings = ({ input, meta }) => (
   <Form.Field>
     <Input
-      placeholder="Servings (Must be a number)"
+      placeholder="Servings"
       {...input}
     />
   </Form.Field>
@@ -35,7 +35,7 @@ const Servings = ({ input, meta }) => (
 const CookTime = ({ input, meta }) => (
   <Form.Field>
     <Input
-      placeholder="Cook Time 20 minutes"
+      placeholder="Cook Time (20 minutes)"
     />
   </Form.Field>
 );
@@ -81,6 +81,10 @@ const RecipeInfo = (props) => {
           <Field name='category' component={RecipeType} />
         </Form.Group>
         <Field name='description' component={Description} />
+        <Button primary icon fluid labelPosition="right" type="submit">
+          Add Ingredients
+          <Icon name="right arrow" />
+        </Button>
       </Form>
     </div>
   );
