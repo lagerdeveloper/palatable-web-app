@@ -36,6 +36,7 @@ const CookTime = ({ input, meta }) => (
   <Form.Field>
     <Input
       placeholder="Cook Time (20 minutes)"
+      {...input}
     />
   </Form.Field>
 );
@@ -71,7 +72,7 @@ const RecipeType = ({ input, meta }) => {
 const RecipeInfo = (props) => {
   const { handleSubmit } = props;
   return (
-    <div className='recipe-info-container'>
+    <div className='recipe-form-card'>
       <Header as='h2' textAlign='center'>New Recipe</Header>
       <Form onSubmit={handleSubmit}>
         <Field name='name' component={Name} />
