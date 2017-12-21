@@ -1,5 +1,4 @@
 .new-recipe-container {
-  flex: 1;
   margin-top: 50px;
   display: flex;
   justify-content: center;
@@ -8,6 +7,7 @@
 }
 
 .recipe-form-card {
+  margin: 10px;
   flex-basis: 50%;
   min-width: 300px;
   max-width: 400px;
