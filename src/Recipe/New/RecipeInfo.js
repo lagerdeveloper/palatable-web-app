@@ -72,7 +72,7 @@ const RecipeType = ({ input, meta }) => {
 const RecipeInfo = (props) => {
   const { handleSubmit } = props;
   return (
-    <div className='recipe-form-card'>
+    <div className='recipe-info-card'>
       <Header as='h2' textAlign='center'>New Recipe</Header>
       <Form onSubmit={handleSubmit}>
         <Field name='name' component={Name} />

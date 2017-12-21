@@ -32,11 +32,11 @@ const renderIngredients = ({ fields, meta: { error } }) => {
 
 const Ingredients = (props) => {
   return (
-    <div className="recipe-form-card">
+    <div className="ingredients-card">
       <Header as='h2' textAlign="center">Ingredients</Header>
       <Form onSubmit={props.handleSubmit}>
         <FieldArray name='ingredients' component={renderIngredients} />
-        {/* <Button onClick={props.prevSection}>Back</Button> */}
+        <Button onClick={props.prevSection}>Back</Button>
         <Button type="submit">Add Directions</Button>
       </Form>
     </div>

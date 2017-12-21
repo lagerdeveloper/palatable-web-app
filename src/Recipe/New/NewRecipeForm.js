@@ -11,7 +11,7 @@ class NewRecipeForm extends Component {
     this.nextSection = this.nextSection.bind(this);
     this.prevSection = this.prevSection.bind(this);
     this.state = {
-      section: 2,
+      section: 1,
     }
   }
 
