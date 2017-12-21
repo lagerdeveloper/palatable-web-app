@@ -99,7 +99,6 @@ class Layout extends Component {
       <div>
         <Menu
           borderless
-          fixed='top'
           size='huge'
         >
           <Menu.Item
@@ -120,9 +119,7 @@ class Layout extends Component {
           toggleSideBar={this.toggleSideBar}
         />
         <Sidebar.Pusher className="main" onClick={this.hideSideBar}>
-          <Container className="main">
-            <Routes />
-          </Container>
+          <Routes />
         </Sidebar.Pusher>
       </div>
     )

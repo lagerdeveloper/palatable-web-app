@@ -11,7 +11,7 @@ class NewRecipeForm extends Component {
     this.nextSection = this.nextSection.bind(this);
     this.prevSection = this.prevSection.bind(this);
     this.state = {
-      section: 1,
+      section: 2,
     }
   }
 
@@ -30,7 +30,7 @@ class NewRecipeForm extends Component {
         return <RecipeInfo onSubmit={this.nextSection} />;
         break;
       case 2:
-        return <Ingredients />;
+        return <Ingredients onSubmit={this.nextSection} prevSection={this.prevSection} />;
         break;
       default:
         return <p>AN ERROR OCCURED</p>;
