@@ -10,9 +10,7 @@ import {
 import './index.css';
 
 const renderIngredient = ({ input, meta: { error, touched } }) => (
-  <div className="ingredient-input">
-    <Input placeholder="Ingredient goes here!" {...input} />
-  </div>
+  <Input placeholder="Ingredient goes here!" {...input} />
 );
 
 const renderIngredients = ({ fields, meta: { error } }) => {
@@ -22,9 +20,21 @@ const renderIngredients = ({ fields, meta: { error } }) => {
   }
   return (
     <div className="ingredients-wrapper">
-      { fields.map((ingredient, index) => (
-        <Field key={index} name={ingredient} component={renderIngredient} />
-      ))}
+      { fields.map((ingredient, index) => {
+        console.log(index);
+        return (
+          <div key={index} className="ingredient-input">
+            <Field name={ingredient} component={renderIngredient} />
+            { index === 0 ? undefined :
+              <Button circular className="close-btn" icon='close' onClick={(e) => {
+                  e.preventDefault();
+                  fields.remove(index);
+                }}
+              />
+            }
+          </div>
+        );
+      })}
       <Button icon='add' onClick={(e) => { e.preventDefault(); fields.push();}} />
     </div>
   );

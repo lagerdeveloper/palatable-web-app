@@ -1,14 +1,17 @@
 .new-recipe-container {
   margin-top: 50px;
-  display: flex;
+  /*display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100%;
+  height: 100%;*/
+  display: grid;
+  grid-column-templates: minmax(300px, 1fr);
 }
 
 .recipe-info-card {
   margin: 10px;
-  min-width: 300px;
+  justify-self: center;
   background-color: white;
   padding: 20px;
   border: 1px solid white;
@@ -17,8 +20,7 @@
 
 .ingredients-card {
   margin: 10px;
-  flex-basis: 50%;
-  min-width: 300px;
+  justify-self: center;
   background-color: white;
   padding: 20px;
   border: 1px solid white;
@@ -32,5 +34,12 @@
 }
 
 .ingredient-input {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
   margin-bottom: 10px;
+}
+
+.close-btn {
+  background: none !important;
 }

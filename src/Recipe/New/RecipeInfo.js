@@ -1,6 +1,6 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
-import { Form, Input, Label, Dropdown, Header, Button, Icon } from 'semantic-ui-react';
+import { Form, Input, Dropdown, Header, Button, Icon } from 'semantic-ui-react';
 import { capitalize } from 'lodash/string';
 
 import './index.css';

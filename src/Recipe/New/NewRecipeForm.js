@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Segment, Header } from 'semantic-ui-react';
+import { Step } from 'semantic-ui-react';
 import RecipeInfo from './RecipeInfo';
 import Ingredients from './Ingredients';
 import './index.css';
@@ -28,10 +28,8 @@ class NewRecipeForm extends Component {
     switch(section) {
       case 1:
         return <RecipeInfo onSubmit={this.nextSection} />;
-        break;
       case 2:
         return <Ingredients onSubmit={this.nextSection} prevSection={this.prevSection} />;
-        break;
       default:
         return <p>AN ERROR OCCURED</p>;
     }
