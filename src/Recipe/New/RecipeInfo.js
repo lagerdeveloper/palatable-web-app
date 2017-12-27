@@ -1,17 +1,19 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
-import { Form, Input, Dropdown, Header, Button, Icon } from 'semantic-ui-react';
+import { Form, Input, Dropdown, Header, Button, Icon, Message } from 'semantic-ui-react';
 import { capitalize } from 'lodash/string';
+import validate from './validate';
 
 import './index.css';
 
 
 const Name = ({ input, meta }) => (
-  <Form.Field>
+  <Form.Field error={meta.touched && meta.error}>
     <Input
       placeholder='Recipe Title'
       {...input}
     />
+    { meta.touched && meta.error && <Message negative attached>{meta.error}</Message> }
   </Form.Field>
 );
 
@@ -93,6 +95,7 @@ const RecipeInfo = (props) => {
 
 export default reduxForm({
   form: 'new_recipe',
+  validate,
   destroyOnUnmount: false,
   forceUnregisterOnUnmount: true,
 })(RecipeInfo);

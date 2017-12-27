@@ -21,17 +21,14 @@ const renderIngredients = ({ fields, meta: { error } }) => {
   return (
     <div className="ingredients-wrapper">
       { fields.map((ingredient, index) => {
-        console.log(index);
         return (
           <div key={index} className="ingredient-input">
             <Field name={ingredient} component={renderIngredient} />
-            { index === 0 ? undefined :
-              <Button circular className="close-btn" icon='close' onClick={(e) => {
-                  e.preventDefault();
-                  fields.remove(index);
-                }}
-              />
-            }
+            <Button circular className="close-btn" icon='close' onClick={(e) => {
+                e.preventDefault();
+                fields.remove(index);
+              }}
+            />
           </div>
         );
       })}
