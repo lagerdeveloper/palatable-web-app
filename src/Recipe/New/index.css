@@ -1,7 +1,7 @@
 .new-recipe-container {
   margin-top: 50px;
   display: grid;
-  grid-column-templates: minmax(500px, 1fr);
+  grid-column-templates: 1fr;
 }
 
 .recipe-info-card {

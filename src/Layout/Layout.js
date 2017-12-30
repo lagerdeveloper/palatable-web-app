@@ -50,8 +50,23 @@ class Layout extends Component {
     const { authenticated, login } = this.props;
     const { activeMenuItem, sideBarVisible } = this.state;
     const authDropdownOptions = [
-      { key: 'account', text: 'Account' },
-      { key: 'sign-out', text: 'Sign Out', onClick: this.logout },
+      {
+        key: 'account',
+        text: 'Account',
+        icon: 'user circle',
+        as: Link,
+        to: '/account',
+        active: false,
+        selected: false,
+      },
+      {
+        key: 'sign-out',
+        text: 'Sign Out',
+        icon: 'sign out',
+        onClick: this.logout,
+        active: false,
+        selected: false,
+      },
     ];
     const authMenuItems = [
       <Popup
@@ -69,7 +84,8 @@ class Layout extends Component {
         key={2}
         item
         icon={null}
-        trigger={<span><span>{login} </span><Icon name="user"/></span>}
+        header={login}
+        trigger={<Icon name="user"/>}
         options={authDropdownOptions}
       />
     ];
