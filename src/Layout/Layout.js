@@ -9,7 +9,8 @@ import {
   Sidebar,
   Dropdown,
   Image,
-  Popup
+  Popup,
+  Icon,
 } from 'semantic-ui-react';
 
 import Drawer from './Drawer';
@@ -68,7 +69,7 @@ class Layout extends Component {
         key={2}
         item
         icon={null}
-        trigger={<span>{login}</span>}
+        trigger={<span><span>{login} </span><Icon name="user"/></span>}
         options={authDropdownOptions}
       />
     ];

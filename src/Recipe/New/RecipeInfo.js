@@ -2,18 +2,19 @@ import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { Form, Input, Dropdown, Header, Button, Icon, Message } from 'semantic-ui-react';
 import { capitalize } from 'lodash/string';
+import { isUndefined } from 'lodash/lang';
 import validate from './validate';
 
 import './index.css';
 
 
 const Name = ({ input, meta }) => (
-  <Form.Field error={meta.touched && meta.error}>
+  <Form.Field error={meta.touched && !isUndefined(meta.error)}>
     <Input
       placeholder='Recipe Title'
       {...input}
     />
-    { meta.touched && meta.error && <Message negative attached>{meta.error}</Message> }
+    { meta.touched && meta.error && <Message negative attached='bottom'>{meta.error}</Message> }
   </Form.Field>
 );
 
