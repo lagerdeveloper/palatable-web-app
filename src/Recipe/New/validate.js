@@ -6,14 +6,22 @@ const validate = values => {
   if (!values.name) {
     errors.name = 'Must provide recipe title.';
   }
+
+  //validate the ingredients
+  validateIngredients(values.ingredients, errors);
+
+  return errors;
+}
+
+const validateIngredients = (ingredients, errors) => {
   //Remove any falsey values from ingredients
-  const ingredients = compact(values.ingredients);
-  if (isEmpty(ingredients)) {
+  const cleanedIngredients = compact(ingredients);
+  if (isEmpty(cleanedIngredients)) {
     errors.ingredients = { _error: 'Must add at least 1 ingredient' };
   } else {
     const ingredientsErrors = [];
     let repeatedIngredientIndices = [];
-    values.ingredients.forEach((ingredient, index, ingredientsArray) => {
+    ingredients.forEach((ingredient, index, ingredientsArray) => {
       repeatedIngredientIndices = findAllIndices(ingredientsArray, ingredient);
       if (repeatedIngredientIndices.length >= 2) {
         repeatedIngredientIndices.map(i => ingredientsErrors[i] = `Cannot use ${ingredient} more than once.`);
@@ -23,9 +31,7 @@ const validate = values => {
       errors.ingredients = ingredientsErrors;
     }
   }
-
-  return errors;
-}
+};
 
 //function that returns an array of indices for which item is found in array
 const findAllIndices = (array, itemToFind) => {
