@@ -1,7 +1,7 @@
 .new-recipe-container {
   margin-top: 50px;
   display: grid;
-  grid-column-templates: 1fr;
+  grid-template-columns: 1fr;
 }
 
 .recipe-info-card {
@@ -13,10 +13,11 @@
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
+/* Add Media Query to handle max-width on mobile devices */
 .ingredients-card {
   margin: 10px;
-  justify-self: center;
   min-width: 500px;
+  justify-self: center;
   background-color: white;
   padding: 20px;
   border: 1px solid white;

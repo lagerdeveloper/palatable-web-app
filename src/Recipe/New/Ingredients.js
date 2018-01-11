@@ -5,7 +5,10 @@ import {
   Form,
   Input,
   Button,
+  Message,
 } from 'semantic-ui-react';
+
+import validate from './validate';
 
 import './index.css';
 
@@ -13,13 +16,14 @@ const renderIngredient = ({ input, meta: { error, touched } }) => (
   <Input placeholder="Ingredient goes here!" {...input} />
 );
 
-const renderIngredients = ({ fields, meta: { error } }) => {
+const renderIngredients = ({ fields, meta: { error, submitFailed } }) => {
   //Used to add the first ingredient input field
   if (!fields.length) {
     fields.push();
   }
   return (
     <div className="ingredients-wrapper">
+      { submitFailed && error && <Message negative content={error}/> }
       { fields.map((ingredient, index) => (
         <div key={index} className="ingredient-input">
           <Field name={ingredient} component={renderIngredient} />
@@ -41,7 +45,11 @@ const renderIngredients = ({ fields, meta: { error } }) => {
           />
         </div>
       ))}
-      <Button type="button" icon='add' onClick={(e) => { e.preventDefault(); fields.push();}} />
+      <Button
+        type="button"
+        icon='add'
+        onClick={(e) => { e.preventDefault(); fields.push();}}
+      />
     </div>
   );
 };
@@ -61,6 +69,7 @@ const Ingredients = (props) => {
 
 export default reduxForm({
   form: 'new_recipe',
+  validate,
   destroyOnUnmount: false,
   forceUnregisterOnUnmount: true,
 })(Ingredients);
