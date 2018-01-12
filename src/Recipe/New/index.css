@@ -30,10 +30,9 @@
   margin-bottom: 10px;
 }
 
-.ingredient-input {
-  display: inline-flex;
+.ui.form .field {
+  display: flex;
   align-items: center;
-  margin-bottom: 10px;
 }
 
 .ui.input {

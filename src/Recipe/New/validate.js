@@ -1,5 +1,5 @@
 import { isEmpty } from 'lodash/lang';
-import { compact, union } from 'lodash/array';
+import { compact, union, findIndex } from 'lodash/array';
 
 const validate = values => {
   const errors = {};

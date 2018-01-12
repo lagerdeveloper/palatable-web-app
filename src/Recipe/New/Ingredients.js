@@ -12,8 +12,26 @@ import validate from './validate';
 
 import './index.css';
 
-const renderIngredient = ({ input, meta: { error, touched } }) => (
-  <Input placeholder="Ingredient goes here!" {...input} />
+const renderIngredient = ({ index, fields, input, meta: { invalid, touched } }) => (
+  <Form.Field inline error={invalid}>
+    <Input className='ingredient-input' error={touched && invalid} placeholder="Ingredient goes here!" {...input} />
+    <Button
+      type="button"
+      circular
+      className="close-btn"
+      icon='close'
+      onClick={(e) => {
+        e.preventDefault();
+        // Clear the field
+        if (index === 0 && fields.length === 1) {
+          fields.remove(index);
+          fields.push();
+        } else {
+          fields.remove(index);
+        }
+      }}
+    />
+  </Form.Field>
 );
 
 const renderIngredients = ({ fields, meta: { error, submitFailed } }) => {
@@ -25,25 +43,13 @@ const renderIngredients = ({ fields, meta: { error, submitFailed } }) => {
     <div className="ingredients-wrapper">
       { submitFailed && error && <Message negative content={error}/> }
       { fields.map((ingredient, index) => (
-        <div key={index} className="ingredient-input">
-          <Field name={ingredient} component={renderIngredient} />
-          <Button
-            type="button"
-            circular
-            className="close-btn"
-            icon='close'
-            onClick={(e) => {
-              e.preventDefault();
-              // Clear the field
-              if (index === 0 && fields.length === 1) {
-                fields.remove(index);
-                fields.push();
-              } else {
-                fields.remove(index);
-              }
-            }}
+          <Field
+            key={index}
+            index={index}
+            fields={fields}
+            name={ingredient}
+            component={renderIngredient}
           />
-        </div>
       ))}
       <Button
         type="button"
