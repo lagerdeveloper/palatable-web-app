@@ -5,44 +5,16 @@ import logo from '../Images/palatable_red_logo.svg';
 import './Layout.css';
 import './Drawer.css';
 
-function isChildOfClass(target, parentClass) {
-  //If node is root then we have reached root of tree
-  if (target.id === 'root') {
-    return false;
-  }
-  if (target.classList.contains(parentClass)) {
-    return true;
-  }
-  return isChildOfClass(target.parentNode, parentClass);
-}
-
 class Drawer extends Component {
   constructor(props) {
     super(props);
     this.close = this.close.bind(this);
-    this.bodyClose = this.bodyClose.bind(this);
     this.state = { open: props.hasOwnProperty('open') ? props.open : false };
-  }
-
-  componentWillUpdate(nextProps, nextState) {
-    if (nextState.open) {
-      document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
-      document.body.addEventListener('click', this.bodyClose);
-    } else {
-      document.body.style.backgroundColor = "white";
-      document.body.removeEventListener('click', this.bodyClose);
-    }
   }
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.hasOwnProperty('open')) {
       this.setState({ open: nextProps.open });
-    }
-  }
-
-  bodyClose(e) {
-    if (!isChildOfClass(e.target, 'drawer')) {
-      this.setState({ open: false });
     }
   }
 
@@ -52,13 +24,20 @@ class Drawer extends Component {
 
   render() {
     const { open } = this.state;
-    return (
-      <div className={`drawer ${open ? 'open' : ''}`}>
-        <Link to='/'>Home</Link>
-        <button onClick={this.close}>Close</button>
-        <p>hello</p>
+    return [
+      <div
+        key={1}
+        className={`main-content-overlay ${open ? 'show' : ''}`}
+        onClick={this.close}
+      />,
+      <div key={2} className={`drawer ${open ? 'open' : ''}`}>
+        <div className="drawer-menu">
+          <Link to='/'>Home</Link>
+          <button onClick={this.close}>Close</button>
+          <p>hello</p>
+        </div>
       </div>
-    );
+    ];
   }
 }
 // const Drawer = (props) => {
