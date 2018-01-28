@@ -1,6 +1,5 @@
 .drawer {
   position: fixed;
-  padding-top: 45px;
   height: 100vh;
   width: 0;
   top: 0;
@@ -13,9 +12,16 @@
   box-shadow: 4px 0px 8px 0px rgba(0,0,0,0.2), 5px 0px 10px 0px rgba(0,0,0,0.19);
 }
 
-.drawer-menu {
+.drawer-content {
   display: grid;
   grid-gap: 10px;
+}
+
+.drawer-header {
+  display: grid;
+  grid-template-rows: 60px;
+  align-items: center;
+  padding-left: 20px;
 }
 
 .main-content-overlay {

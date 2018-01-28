@@ -19,18 +19,30 @@ import './Layout.css';
 class Layout extends Component {
   constructor(props) {
     super(props);
+    this.openDrawer = this.openDrawer.bind(this);
+    this.closeDrawer = this.closeDrawer.bind(this);
     this.state = { drawerOpen: false };
+  }
+
+  openDrawer() {
+    this.setState({ drawerOpen: true });
+  }
+
+  closeDrawer() {
+    this.setState({ drawerOpen: false });
   }
 
   render() {
     return (
       <Fragment>
         <Drawer open={this.state.drawerOpen}>
-          <button>Close Drawer</button>
+          <button onClick={this.closeDrawer}>Close Drawer</button>
+          <Link to='/cocktails' onClick={this.closeDrawer}>Cocktails</Link>
+          <p>hello</p>
         </Drawer>
         <div key={2} className="layout">
-          <button onClick={() => this.setState({ drawerOpen: true })} >Open</button>
-          <button onClick={() => this.setState({ drawerOpen: false })}>Close</button>
+          <button onClick={this.openDrawer} >Open</button>
+          <button onClick={this.closeDrawer}>Close</button>
           <Routes />
         </div>
       </Fragment>

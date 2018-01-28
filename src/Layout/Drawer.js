@@ -1,6 +1,7 @@
-import React, { Children, cloneElement, Component, Fragment } from 'react';
+import React, { Component, Fragment } from 'react';
 import { Sidebar, Menu, Icon, Image } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
+import CloseIcon from 'react-icons/lib/md/close';
 import logo from '../Images/palatable_red_logo.svg';
 import './Layout.css';
 import './Drawer.css';
@@ -9,7 +10,6 @@ class Drawer extends Component {
   constructor(props) {
     super(props);
     this.close = this.close.bind(this);
-    this.renderChildren = this.renderChildren.bind(this);
     this.state = { open: props.hasOwnProperty('open') ? props.open : false };
   }
 
@@ -23,26 +23,6 @@ class Drawer extends Component {
     this.setState({ open: false });
   }
 
-  /*
-  Handles rendering children of Drawer
-  Inserts onClick event handler to each child to close drawer
-  */
-  renderChildren() {
-    const children = this.props.children;
-    return Children.map(children, child => {
-      if (child.props.hasOwnProperty('onClick')) {
-        return cloneElement(child, {
-          onClick: () => {
-            child.props.onClick();
-            this.close();
-          },
-        });
-      } else {
-        return cloneElement(child, { onClick: this.close });
-      }
-    });
-  }
-
   render() {
     const { open } = this.state;
     return (
@@ -52,11 +32,11 @@ class Drawer extends Component {
           onClick={this.close}
         />
         <div className={`drawer ${open ? 'open' : ''}`}>
-          <div className="drawer-menu">
-            {this.renderChildren()}
-            <Link to='/cocktails'>Home</Link>
-            <button onClick={this.close}>Close</button>
-            <p>hello</p>
+          <div className="drawer-content">
+            <div className="drawer-header drawer-item">
+              <CloseIcon onClick={this.close} size={30} style={{ cursor: 'pointer' }}/>
+            </div>
+            {this.props.children}
           </div>
         </div>
       </Fragment>
