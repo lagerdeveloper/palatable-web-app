@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import Routes from '../Routes';
 import logo from '../Images/palatable_red_logo.svg';
@@ -23,13 +23,18 @@ class Layout extends Component {
   }
 
   render() {
-    return [
-      <Drawer key={1} open={this.state.drawerOpen} />,
-      <div key={2} className="layout">
-        <button onClick={() => this.setState({ drawerOpen: true })} >Open</button>
-        <button onClick={() => this.setState({ drawerOpen: false })}>Close</button>
-      </div>
-    ];
+    return (
+      <Fragment>
+        <Drawer open={this.state.drawerOpen}>
+          <button>Close Drawer</button>
+        </Drawer>
+        <div key={2} className="layout">
+          <button onClick={() => this.setState({ drawerOpen: true })} >Open</button>
+          <button onClick={() => this.setState({ drawerOpen: false })}>Close</button>
+          <Routes />
+        </div>
+      </Fragment>
+    );
   }
 }
 
