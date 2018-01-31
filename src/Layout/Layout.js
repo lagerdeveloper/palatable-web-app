@@ -51,9 +51,12 @@ class Layout extends Component {
               <VerticalMenuIcon style={{ cursor: 'pointer' }} size={30} />
             </div>
           </div>
-          <Routes />
+          <div className="main">
+            <Routes />
+          </div>
         </div>
       </Fragment>
+
     );
   }
 }

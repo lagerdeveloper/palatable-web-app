@@ -36,6 +36,10 @@
   padding-right: 15px;
 }
 
+.main {
+  padding: 2rem;
+}
+
 .drawer-icon {
   grid-area: drawer-icon;
 }
