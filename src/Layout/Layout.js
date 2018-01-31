@@ -2,6 +2,8 @@ import React, { Component, Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import Routes from '../Routes';
 import logo from '../Images/palatable_red_logo.svg';
+import DrawerIcon from 'react-icons/lib/md/menu';
+import VerticalMenuIcon from 'react-icons/lib/md/more-vert';
 
 import {
   Menu,
@@ -40,9 +42,15 @@ class Layout extends Component {
           <Link to='/cocktails' onClick={this.closeDrawer}>Cocktails</Link>
           <p>hello</p>
         </Drawer>
-        <div key={2} className="layout">
-          <button onClick={this.openDrawer} >Open</button>
-          <button onClick={this.closeDrawer}>Close</button>
+        <div className="layout">
+          <div className="header">
+            <div className="drawer-icon">
+              <DrawerIcon style={{ cursor: 'pointer' }} size={30} onClick={this.openDrawer} />
+            </div>
+            <div className="sub-menu">
+              <VerticalMenuIcon style={{ cursor: 'pointer' }} size={30} />
+            </div>
+          </div>
           <Routes />
         </div>
       </Fragment>
