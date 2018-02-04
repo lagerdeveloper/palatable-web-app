@@ -33,10 +33,12 @@ class Drawer extends Component {
         />
         <div className={`drawer ${open ? 'open' : ''}`}>
           <div className="drawer-content">
-            <div className="drawer-header drawer-item">
-              <CloseIcon onClick={this.close} size={30} style={{ cursor: 'pointer' }}/>
+            <div className="drawer-header">
+              <CloseIcon onClick={this.close} size={28} style={{ cursor: 'pointer' }}/>
             </div>
-            {this.props.children}
+            <div className="drawer-items">
+              {this.props.children}
+            </div>
           </div>
         </div>
       </Fragment>

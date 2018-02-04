@@ -38,17 +38,16 @@ class Layout extends Component {
     return (
       <Fragment>
         <Drawer open={this.state.drawerOpen}>
-          <button onClick={this.closeDrawer}>Close Drawer</button>
+          <Link to='/' onClick={this.closeDrawer}>Home</Link>
           <Link to='/cocktails' onClick={this.closeDrawer}>Cocktails</Link>
-          <p>hello</p>
         </Drawer>
         <div className="layout">
           <div className="header">
             <div className="drawer-icon">
-              <DrawerIcon style={{ cursor: 'pointer' }} size={30} onClick={this.openDrawer} />
+              <DrawerIcon style={{ cursor: 'pointer' }} size={28} onClick={this.openDrawer} />
             </div>
             <div className="sub-menu">
-              <VerticalMenuIcon style={{ cursor: 'pointer' }} size={30} />
+              <VerticalMenuIcon style={{ cursor: 'pointer' }} size={28} />
             </div>
           </div>
           <div className="main">
