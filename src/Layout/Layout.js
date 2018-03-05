@@ -49,6 +49,12 @@ class Layout extends Component {
             </div>
             <div className="sub-menu">
               <VerticalMenuIcon style={{ cursor: 'pointer' }} size={28} />
+              <div
+                className='sub-menu-btn'
+                onClick={() => this.props.history.push('/sign_in')}
+              >
+                SIGN IN
+              </div>
             </div>
           </div>
           <div className="main">

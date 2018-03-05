@@ -45,6 +45,27 @@
 }
 
 .sub-menu {
+  height: 40px;
+  display: flex;
+  align-items: center;
   grid-area: sub-menu;
   align-self: center;
+}
+
+.sub-menu-btn {
+  height: 40px;
+  width: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 10px;
+  color: var(--primary-color);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.sub-menu-btn:hover {
+  background: var(--primary-color);
+  color: white;
 }
