@@ -37,7 +37,10 @@ class Layout extends Component {
   render() {
     return (
       <Fragment>
-        <Drawer open={this.state.drawerOpen}>
+        <Drawer
+          open={this.state.drawerOpen}
+          onDrawerOpenChange={open => this.setState({ drawerOpen: open })}
+        >
           <Link to='/' onClick={this.closeDrawer}>Home</Link>
           <Link to='/cocktails' onClick={this.closeDrawer}>Cocktails</Link>
           <Link to='/recipe_box' onClick={this.closeDrawer}>Recipe Box</Link>

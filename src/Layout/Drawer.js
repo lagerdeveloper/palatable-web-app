@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import { Sidebar, Menu, Icon, Image } from 'semantic-ui-react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import CloseIcon from 'react-icons/lib/md/close';
 import logo from '../Images/palatable_red_logo.svg';
@@ -10,12 +10,18 @@ class Drawer extends Component {
   constructor(props) {
     super(props);
     this.close = this.close.bind(this);
-    this.state = { open: props.hasOwnProperty('open') ? props.open : false };
+    this.state = { open: props.open };
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.hasOwnProperty('open')) {
+    if (this.props.open !== nextProps.open) {
       this.setState({ open: nextProps.open });
+    }
+  }
+
+  componentWillUpdate(nextProps, nextState) {
+    if (nextState.open !== this.state.open) {
+      this.props.onDrawerOpenChange(nextState.open);
     }
   }
 
@@ -45,47 +51,10 @@ class Drawer extends Component {
     );
   }
 }
-// const Drawer = (props) => {
-//   const { toggleSideBar, sideBarVisible, activeMenuItem, handleMenuItemClick } = props;
-//   return (
-//     <Sidebar
-//       as={Menu}
-//       animation='overlay'
-//       className="drawer"
-//       size='huge'
-//       visible={sideBarVisible}
-//       vertical
-//     >
-//       <Menu.Item
-//         className='removeIcon'
-//         onClick={toggleSideBar}
-//         style={{ height: 59.69 }}
-//       >
-//         <Icon name='remove' className='left' />
-//         <Image src={logo} />
-//       </Menu.Item>
-//       <Menu.Item
-//         as={Link}
-//         to='/'
-//         name='home'
-//         active={activeMenuItem === 'home'}
-//         onClick={handleMenuItemClick}
-//       >
-//         <Icon name='home' className='left' />
-//         Home
-//       </Menu.Item>
-//       <Menu.Item
-//         as={Link}
-//         to='/cocktails'
-//         name='cocktails'
-//         active={activeMenuItem === 'cocktails'}
-//         onClick={handleMenuItemClick}
-//       >
-//         <Icon name='cocktail' className="left" />
-//         Cocktails
-//       </Menu.Item>
-//     </Sidebar>
-//   );
-// };
+
+Drawer.propTypes = {
+  open: PropTypes.bool.isRequired,
+  onDrawerOpenChange: PropTypes.func.isRequired,
+};
 
 export default Drawer;
