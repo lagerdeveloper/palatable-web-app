@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import AppRoutes from '../AppRoutes';
 import logo from '../Images/palatable_red_logo.svg';
 import DrawerIcon from 'react-icons/lib/md/menu';
-import VerticalMenuIcon from 'react-icons/lib/md/more-vert';
+import SearchIcon from 'react-icons/lib/md/search';
 
 import {
   Menu,
@@ -51,12 +51,18 @@ class Layout extends Component {
               <DrawerIcon style={{ cursor: 'pointer' }} size={28} onClick={this.openDrawer} />
             </div>
             <div className="sub-menu">
-              <VerticalMenuIcon style={{ cursor: 'pointer' }} size={28} />
+              <SearchIcon style={{ cursor: 'pointer' }} size={28} />
               <div
-                className='sub-menu-btn'
+                className='sign-in-btn'
                 onClick={() => this.props.history.push('/sign_in')}
               >
-                SIGN IN
+                Sign in
+              </div>
+              <div
+                className='sign-up-btn'
+                onClick={() => this.props.history.push('/sign_up')}
+              >
+                Start Cooking
               </div>
             </div>
           </div>

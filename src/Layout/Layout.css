@@ -52,7 +52,7 @@
   align-self: center;
 }
 
-.sub-menu-btn {
+.sign-in-btn {
   height: 40px;
   width: 80px;
   display: flex;
@@ -60,12 +60,25 @@
   justify-content: center;
   margin-left: 10px;
   color: var(--primary-color);
-  border-radius: 4px;
   cursor: pointer;
   transition: 0.2s;
 }
 
-.sub-menu-btn:hover {
-  background: var(--primary-color);
+.sign-up-btn {
+  height: 40px;
+  width: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 10px;
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 0.1s;
+}
+
+.sign-up-btn:hover {
+  background-color: var(--primary-color);
   color: white;
 }
