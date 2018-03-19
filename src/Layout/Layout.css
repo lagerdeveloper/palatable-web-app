@@ -1,43 +1,22 @@
 .main {
-}
-
-.ui.fixed.menu {
-  background-color: #ffffff;
-}
-
-.ui.vertical.menu .item>i.icon {
-  float: left;
-  margin-right: 2em;
-  margin-left: 0;
-}
-
-.ui.drawer {
-  text-align: center;
-}
-
-.ui.vertical.menu .removeIcon {
-  display: flex;
-  align-items: center;
+  height: 100vh;
+  padding: 2rem;
 }
 
 .layout {
-  display: grid;
-  grid-template-rows: 56px auto;
-  grid-row-gap: 10px;
+  display: flex;
+  flex-direction: column;
 }
 
 .header {
   display: grid;
+  height: 56px;
   grid-template-columns: auto 1fr auto;
   grid-template-areas: 'drawer-icon . sub-menu';
   align-items: center;
   box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.3);
   padding-left: 15px;
   padding-right: 15px;
-}
-
-.main {
-  padding: 2rem;
 }
 
 .drawer-icon {
@@ -55,10 +34,11 @@
 .sign-in-btn {
   height: 40px;
   width: 80px;
+  font-size: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-left: 10px;
+  margin-left: 5px;
   color: var(--primary-color);
   cursor: pointer;
   transition: 0.2s;
@@ -67,6 +47,7 @@
 .sign-up-btn {
   height: 40px;
   width: 120px;
+  font-size: 16px;
   display: flex;
   align-items: center;
   justify-content: center;

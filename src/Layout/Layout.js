@@ -48,10 +48,14 @@ class Layout extends Component {
         <div className="layout">
           <div className="header">
             <div className="drawer-icon">
-              <DrawerIcon style={{ cursor: 'pointer' }} size={28} onClick={this.openDrawer} />
+              <DrawerIcon style={{ cursor: 'pointer' }} color='#676767' size={28} onClick={this.openDrawer} />
             </div>
             <div className="sub-menu">
-              <SearchIcon style={{ cursor: 'pointer' }} size={28} />
+              <SearchIcon
+                style={{ cursor: 'pointer' }}
+                color='#676767'
+                size={28}
+              />
               <div
                 className='sign-in-btn'
                 onClick={() => this.props.history.push('/sign_in')}
