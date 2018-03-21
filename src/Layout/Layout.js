@@ -35,11 +35,32 @@ class Layout extends Component {
   }
 
   render() {
+    const subMenuItems = this.props.authenticated ?
+    [
+      <div key={1}>{this.props.login}</div>
+    ] :
+    [
+      <div
+        key={1}
+        className='sign-in-btn'
+        onClick={() => this.props.history.push('/sign_in')}
+      >
+        Sign in
+      </div>,
+      <div
+        key={2}
+        className='sign-up-btn'
+        onClick={() => this.props.history.push('/sign_up')}
+      >
+        Start Cooking
+      </div>
+    ];
+
     return (
       <Fragment>
         <Drawer
           open={this.state.drawerOpen}
-          onDrawerOpenChange={open => this.setState({ drawerOpen: open })}
+          onChange={open => this.setState({ drawerOpen: open })}
         >
           <Link to='/' onClick={this.closeDrawer}>Home</Link>
           <Link to='/cocktails' onClick={this.closeDrawer}>Cocktails</Link>
@@ -56,18 +77,7 @@ class Layout extends Component {
                 color='#676767'
                 size={28}
               />
-              <div
-                className='sign-in-btn'
-                onClick={() => this.props.history.push('/sign_in')}
-              >
-                Sign in
-              </div>
-              <div
-                className='sign-up-btn'
-                onClick={() => this.props.history.push('/sign_up')}
-              >
-                Start Cooking
-              </div>
+              {subMenuItems}
             </div>
           </div>
           <div className="main">

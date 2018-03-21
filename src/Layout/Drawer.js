@@ -21,7 +21,7 @@ class Drawer extends Component {
 
   componentWillUpdate(nextProps, nextState) {
     if (nextState.open !== this.state.open) {
-      this.props.onDrawerOpenChange(nextState.open);
+      this.props.onChange(nextState.open);
     }
   }
 
