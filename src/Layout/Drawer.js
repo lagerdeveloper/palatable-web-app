@@ -54,7 +54,7 @@ class Drawer extends Component {
 
 Drawer.propTypes = {
   open: PropTypes.bool.isRequired,
-  onDrawerOpenChange: PropTypes.func.isRequired,
+  onChange: PropTypes.func.isRequired,
 };
 
 export default Drawer;
