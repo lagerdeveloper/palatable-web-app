@@ -3,10 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "axios": "^0.16.2",
+    "axios": "^0.17.1",
     "lodash": "^4.17.4",
-    "react": "^16.0.0",
-    "react-dom": "^16.0.0",
+    "prop-types": "^15.6.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-icons": "^2.2.7",
     "react-redux": "^5.0.6",
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
@@ -24,7 +26,7 @@
     "deploy": "git add . && git commit -m 'Deploy palatable' && git push heroku master"
   },
   "devDependencies": {
-    "babel-core": "^6.26.0",
+    "babel-core": "^7.0.0-beta.3",
     "babel-eslint": "7.2.3",
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.0",

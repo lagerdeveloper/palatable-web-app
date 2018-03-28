@@ -1,7 +1,9 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { Link } from 'react-router-dom';
-import Routes from '../Routes';
+import AppRoutes from '../AppRoutes';
 import logo from '../Images/palatable_red_logo.svg';
+import DrawerIcon from 'react-icons/lib/md/menu';
+import SearchIcon from 'react-icons/lib/md/search';
 
 import {
   Menu,
@@ -19,128 +21,74 @@ import './Layout.css';
 class Layout extends Component {
   constructor(props) {
     super(props);
-    this.handleMenuItemClick = this.handleMenuItemClick.bind(this);
-    this.toggleSideBar = this.toggleSideBar.bind(this);
-    this.hideSideBar = this.hideSideBar.bind(this);
-    this.logout = this.logout.bind(this);
-    this.state = {
-      activeMenuItem: 'home',
-      sideBarVisible: false,
-    };
+    this.openDrawer = this.openDrawer.bind(this);
+    this.closeDrawer = this.closeDrawer.bind(this);
+    this.state = { drawerOpen: false };
   }
 
-  handleMenuItemClick(e, { name }) {
-    this.setState({ activeMenuItem: name, sideBarVisible: false });
+  openDrawer() {
+    this.setState({ drawerOpen: true });
   }
 
-  toggleSideBar() {
-    this.setState({ sideBarVisible: !this.state.sideBarVisible });
-  }
-
-  hideSideBar() {
-    this.setState({ sideBarVisible: false });
-  }
-
-  logout() {
-    this.props.destroy('new_recipe');
-    this.props.logout();
+  closeDrawer() {
+    this.setState({ drawerOpen: false });
   }
 
   render() {
-    const { authenticated, login } = this.props;
-    const { activeMenuItem, sideBarVisible } = this.state;
-    const authDropdownOptions = [
-      {
-        key: 'account',
-        text: 'Account',
-        icon: 'user circle',
-        as: Link,
-        to: '/account',
-        active: false,
-        selected: false,
-      },
-      {
-        key: 'sign-out',
-        text: 'Sign Out',
-        icon: 'sign out',
-        onClick: this.logout,
-        active: false,
-        selected: false,
-      },
-    ];
-    const authMenuItems = [
-      <Popup
-        trigger={
-          <Menu.Item
-            as={Link}
-            to='/recipes/new'
-            icon='add'
-          />
-        }
-        content='Add a recipe'
+    const subMenuItems = this.props.authenticated ?
+    [
+      <div key={1}>{this.props.login}</div>
+    ] :
+    [
+      <div
         key={1}
-      />,
-      <Dropdown
-        key={2}
-        item
-        icon={null}
-        header={login}
-        trigger={<Icon name="user"/>}
-        options={authDropdownOptions}
-      />
-    ];
-    const noAuthMenuItems = [
-      <Menu.Item
-        as={Link}
-        key={1}
-        active={activeMenuItem === 'sign_up'}
-        to='sign_up'
-        name='sign_up'
-        onClick={this.handleMenuItemClick}
+        className='sign-in-btn'
+        onClick={() => this.props.history.push('/sign_in')}
       >
-        Sign Up
-      </Menu.Item>,
-      <Menu.Item
-        as={Link}
+        Sign in
+      </div>,
+      <div
         key={2}
-        active={activeMenuItem === 'sign_in'}
-        to='/sign_in'
-        name='sign_in'
-        onClick={this.handleMenuItemClick}
+        className='sign-up-btn'
+        onClick={() => this.props.history.push('/sign_up')}
       >
-        Sign In
-      </Menu.Item>
-    ];
-    const SubMenuItems = authenticated ? authMenuItems : noAuthMenuItems;
-    return (
-      <div>
-        <Menu
-          borderless
-          size='huge'
-        >
-          <Menu.Item
-            icon='content'
-            onClick={this.toggleSideBar}
-          />
-          <Menu.Item>
-            <Image src={logo} />
-          </Menu.Item>
-          <Menu.Menu position='right'>
-            {SubMenuItems}
-          </Menu.Menu>
-        </Menu>
-        <Drawer
-          activeMenuItem={activeMenuItem}
-          sideBarVisible={sideBarVisible}
-          handleMenuItemClick={this.handleMenuItemClick}
-          toggleSideBar={this.toggleSideBar}
-        />
-        <Sidebar.Pusher className="main" onClick={this.hideSideBar}>
-          <Routes />
-        </Sidebar.Pusher>
+        Start Cooking
       </div>
-    )
+    ];
+
+    return (
+      <Fragment>
+        <Drawer
+          open={this.state.drawerOpen}
+          onChange={open => this.setState({ drawerOpen: open })}
+        >
+          <Link to='/' onClick={this.closeDrawer}>Home</Link>
+          <Link to='/cocktails' onClick={this.closeDrawer}>Cocktails</Link>
+          <Link to='/recipe_box' onClick={this.closeDrawer}>Recipe Box</Link>
+        </Drawer>
+        <div className="layout">
+          <div className="header">
+            <div className="drawer-icon">
+              <DrawerIcon style={{ cursor: 'pointer' }} color='#676767' size={28} onClick={this.openDrawer} />
+            </div>
+            <div className="sub-menu">
+              <SearchIcon
+                style={{ cursor: 'pointer' }}
+                color='#676767'
+                size={28}
+              />
+              {subMenuItems}
+            </div>
+          </div>
+          <div className="main">
+            <AppRoutes />
+          </div>
+        </div>
+      </Fragment>
+
+    );
   }
 }
+
 
 export default Layout;

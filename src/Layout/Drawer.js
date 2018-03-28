@@ -1,50 +1,60 @@
-import React from 'react';
-import { Sidebar, Menu, Icon, Image } from 'semantic-ui-react';
+import React, { Component, Fragment } from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import CloseIcon from 'react-icons/lib/md/close';
 import logo from '../Images/palatable_red_logo.svg';
 import './Layout.css';
+import './Drawer.css';
 
-const Drawer = (props) => {
-  const { toggleSideBar, sideBarVisible, activeMenuItem, handleMenuItemClick } = props;
-  return (
-    <Sidebar
-      as={Menu}
-      animation='overlay'
-      className="drawer"
-      size='huge'
-      visible={sideBarVisible}
-      vertical
-    >
-      <Menu.Item
-        className='removeIcon'
-        onClick={toggleSideBar}
-        style={{ height: 59.69 }}
-      >
-        <Icon name='remove' className='left' />
-        <Image src={logo} />
-      </Menu.Item>
-      <Menu.Item
-        as={Link}
-        to='/'
-        name='home'
-        active={activeMenuItem === 'home'}
-        onClick={handleMenuItemClick}
-      >
-        <Icon name='home' className='left' />
-        Home
-      </Menu.Item>
-      <Menu.Item
-        as={Link}
-        to='/cocktails'
-        name='cocktails'
-        active={activeMenuItem === 'cocktails'}
-        onClick={handleMenuItemClick}
-      >
-        <Icon name='cocktail' className="left" />
-        Cocktails
-      </Menu.Item>
-    </Sidebar>
-  );
+class Drawer extends Component {
+  constructor(props) {
+    super(props);
+    this.close = this.close.bind(this);
+    this.state = { open: props.open };
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (this.props.open !== nextProps.open) {
+      this.setState({ open: nextProps.open });
+    }
+  }
+
+  componentWillUpdate(nextProps, nextState) {
+    if (nextState.open !== this.state.open) {
+      this.props.onChange(nextState.open);
+    }
+  }
+
+  close() {
+    this.setState({ open: false });
+  }
+
+  render() {
+    const { open } = this.state;
+    return (
+      <Fragment>
+        <div
+          className={`main-content-overlay ${open ? 'show' : ''}`}
+          onClick={this.close}
+        />
+        <div className={`drawer ${open ? 'open' : ''}`}>
+          <div className="drawer-content">
+            <div className="drawer-header">
+              <CloseIcon onClick={this.close} size={28} style={{ cursor: 'pointer' }}/>
+            </div>
+            <div className="drawer-items">
+              {this.props.children}
+            </div>
+          </div>
+        </div>
+      </Fragment>
+    );
+  }
+}
+
+Drawer.propTypes = {
+  open: PropTypes.bool.isRequired,
+  onChange: PropTypes.func.isRequired,
 };
 
 export default Drawer;
