@@ -40,7 +40,7 @@ class Drawer extends Component {
         <div className={`drawer ${open ? 'open' : ''}`}>
           <div className="drawer-content">
             <div className="drawer-header">
-              <CloseIcon onClick={this.close} size={28} style={{ cursor: 'pointer' }}/>
+              <CloseIcon onClick={this.close} size={28} style={{ cursor: 'pointer', color: 'var(--secondary-color)' }}/>
             </div>
             <div className="drawer-items">
               {this.props.children}

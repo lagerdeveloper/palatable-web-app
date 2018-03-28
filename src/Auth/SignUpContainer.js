@@ -61,11 +61,7 @@ class SignUpContainer extends Component {
       return <Redirect to='/' />;
     }
     return (
-      <Grid textAlign='center' verticalAlign='middle' className='sign-up-container'>
-        <Grid.Column style={{ maxWidth: 450 }}>
-          <SignUpForm onSubmit={this.handleSubmit} {...this.props} />
-        </Grid.Column>
-      </Grid>
+      <SignUpForm onSubmit={this.handleSubmit} {...this.props} />
     );
   }
 }
