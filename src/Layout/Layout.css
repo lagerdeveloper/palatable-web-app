@@ -1,19 +1,24 @@
 .main {
   height: 100vh;
-  padding: 2rem;
 }
 
 .layout {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: 56px auto;
 }
 
 .header {
-  display: grid;
+  width: 100%;
+  position: fixed;
+  top: 0;
   height: 56px;
+  left: 0;
+  z-index: 1;
+  display: grid;
   grid-template-columns: auto 1fr auto;
   grid-template-areas: 'drawer-icon . sub-menu';
   align-items: center;
+  background-color: white;
   box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.3);
   padding-left: 15px;
   padding-right: 15px;

@@ -79,7 +79,9 @@ class Layout extends Component {
               {subMenuItems}
             </div>
           </div>
-          <AppRoutes />
+          <div className="main">
+            <AppRoutes />
+          </div>
         </div>
       </Fragment>
 

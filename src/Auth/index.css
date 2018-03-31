@@ -2,23 +2,38 @@
   margin-top: 10px;
 }
 
+.sign-up-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
 .sign-up-form {
-  align-self: center;
-  min-width: 300px;
+  width: 300px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 100vh;
+  height: 100%;
 }
 
 .sign-in-container {
   height: calc(100% - 60px);
 }
 
+.input-container {
+  margin-bottom: 20px;
+}
+
 .input {
-  font-size: 20px;
+  flex: 10;
+  font-size: 16px;
   border: none;
   color: var(--secondary-color);
+}
+
+.input::placeholder {
+  color: var(--light-grey);
 }
 
 .input:focus {
@@ -26,20 +41,34 @@
 }
 
 .input-icon {
+  flex: 1;
   margin-left: 0.5rem;
   margin-right: 0.5rem;
-  color: var(--secondary-color);
+  color: var(--light-grey);
+  transition: 250ms ease-in-out;
 }
 
-.input-container {
+.input-group {
+  padding-bottom: 2px;
   display: flex;
-  border-bottom: 2px solid var(--secondary-color);
+  align-items: center;
+  border-bottom: 3px solid var(--light-grey);
+  transition: 250ms ease-in-out;
 }
 
-.input-container.focus {
-  border-bottom: 2px solid blue;
+.input-group.focus {
+  border-bottom: 3px solid var(--focus-color);
+}
+
+.focus {
+  color: var(--focus-color);
+}
+
+.error-message {
+  width: 100%;
+  color: var(--error-color);
 }
 
 .error {
-  border-bottom: 2px solid red;
+  border-bottom: 3px solid var(--error-color);
 }

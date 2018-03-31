@@ -7,4 +7,8 @@ body {
 :root {
   --primary-color: #EF5164;
   --secondary-color: #676767;
+  --light-grey: #C9C9C9;
+  --focus-color: #216068;
+  --error-color: #CA0000;
+  /* --focus-color: #37C7D3; */
 }
