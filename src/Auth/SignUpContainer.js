@@ -59,7 +59,7 @@ class SignUpContainer extends Component {
       return <Redirect to='/' />;
     }
     return (
-      <div className="sign-up-container">
+      <div className="auth-container">
         <SignUpForm onSubmit={this.handleSubmit} {...this.props} />
       </div>
     );

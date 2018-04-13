@@ -1,7 +1,10 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { Link } from 'react-router-dom';
-import { Form, Input, Button, Segment, Message } from 'semantic-ui-react';
+import Input from '../Components/Input/Input';
+import Button from '../Components/Button/Button';
+import LockIcon from 'react-icons/lib/md/lock';
+import PersonIcon from 'react-icons/lib/md/person';
 import './index.css';
 
 
@@ -17,51 +20,41 @@ function validate({ login, password }) {
 }
 
 const LoginInput = ({ input, meta }) => {
+  const { touched, error } = meta;
   return (
-    <Form.Field>
-      <Input
-        icon='user'
-        iconPosition='left'
-        placeholder='Email or Username'
-        type='text'
-        {...input}
-      />
-      { meta.touched && meta.error &&
-        <Message size='small' attached='bottom' negative content={meta.error} />
-      }
-    </Form.Field>
+    <Input
+      icon={<PersonIcon />}
+      placeholder='Email or Username'
+      type='text'
+      error={ touched && error ? error : undefined}
+      {...input}
+    />
   );
 };
 
 const PasswordInput = ({ input, meta }) => {
+  const { touched, error } = meta;
   return (
-    <Form.Field>
-      <Input
-        icon='lock'
-        iconPosition='left'
-        placeholder='Password'
-        type='password'
-        {...input}
-      />
-      { meta.touched && meta.error &&
-        <Message size='small' attached='bottom' negative content={meta.error} />
-      }
-    </Form.Field>
+    <Input
+      icon={<LockIcon />}
+      placeholder='Password'
+      type='password'
+      error={ touched && error ? error : undefined}
+      {...input}
+    />
   );
 };
 
 const SignInForm = (props) => {
   const { handleSubmit, error, submitting } = props;
   return (
-    <Form loading={submitting} size='large' onSubmit={handleSubmit}>
-      <Segment raised padded='very'>
-        { error && <Message negative content={error} /> }
-        <Field name='login' component={LoginInput} />
-        <Field name='password' component={PasswordInput} />
-        <Button primary fluid size='large' type='submit'>Sign In</Button>
-        <p className='formFooter'>Dont have an account? <Link to="/sign_up">Sign Up</Link></p>
-      </Segment>
-    </Form>
+    <form className='auth-form' onSubmit={handleSubmit}>
+      { error && <p>{error}</p> }
+      <Field name='login' component={LoginInput} />
+      <Field name='password' component={PasswordInput} />
+      <Button primary type='submit'>Sign In</Button>
+      <p className='formFooter'>Dont have an account? <Link to="/sign_up">Sign Up</Link></p>
+    </form>
   );
 };
 

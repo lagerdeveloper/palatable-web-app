@@ -2,22 +2,18 @@
   margin-top: 10px;
 }
 
-.sign-up-container {
+.auth-container {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100%;
 }
 
-.sign-up-form {
+.auth-form {
   width: 300px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100%;
-}
-
-.sign-in-container {
-  height: calc(100% - 60px);
 }

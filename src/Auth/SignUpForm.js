@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { Link } from 'react-router-dom';
 import Input from '../Components/Input/Input';
@@ -59,7 +59,7 @@ const PasswordInput = ({ input, meta }) => {
 const SignUpForm = (props) => {
   const { handleSubmit, error, submitting } = props;
   return (
-    <form className="sign-up-form" onSubmit={handleSubmit}>
+    <form className="auth-form" onSubmit={handleSubmit}>
       { error && <p>{error}</p> }
       <Field name='username' component={UsernameInput} />
       <Field name='email' component={EmailInput} />

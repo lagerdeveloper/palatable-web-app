@@ -5,8 +5,6 @@ import { SubmissionError } from 'redux-form';
 import { Redirect } from 'react-router';
 import axios from 'axios';
 
-import { Grid } from 'semantic-ui-react';
-
 import SignInForm from './SignInForm';
 
 import { authSuccess } from './actions';
@@ -67,11 +65,9 @@ class SignInContainer extends Component {
       return <Redirect to={redirectPath} />;
     }
     return (
-      <Grid textAlign='center' verticalAlign='middle' className='sign-in-container'>
-        <Grid.Column style={{ maxWidth: 450 }}>
-          <SignInForm onSubmit={this.handleSubmit} {...this.props} />
-        </Grid.Column>
-      </Grid>
+      <div className="auth-container">
+        <SignInForm onSubmit={this.handleSubmit} {...this.props} />
+      </div>
     );
   }
 }

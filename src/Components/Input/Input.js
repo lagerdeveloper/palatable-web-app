@@ -48,7 +48,7 @@ class MyInput extends React.Component {
   }
 
   render() {
-    const { focused, error, valid } = this.state;
+    const { error } = this.state;
     const inputGroupStyle = this.determineInputGroupStyle();
     const { onFocus, onBlur, icon, ...rest } = this.props;
     return (
