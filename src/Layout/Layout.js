@@ -1,19 +1,8 @@
 import React, { Component, Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import AppRoutes from '../AppRoutes';
-import logo from '../Images/palatable_red_logo.svg';
 import DrawerIcon from 'react-icons/lib/md/menu';
 import SearchIcon from 'react-icons/lib/md/search';
-
-import {
-  Menu,
-  Container,
-  Sidebar,
-  Dropdown,
-  Image,
-  Popup,
-  Icon,
-} from 'semantic-ui-react';
 
 import Drawer from './Drawer';
 import './Layout.css';

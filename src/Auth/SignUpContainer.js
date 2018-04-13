@@ -4,8 +4,6 @@ import { Redirect } from 'react-router';
 import { SubmissionError } from 'redux-form';
 import axios from 'axios';
 
-import { Grid } from 'semantic-ui-react';
-
 import SignUpForm from './SignUpForm';
 
 import { authSuccess } from './actions';

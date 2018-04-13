@@ -1,0 +1,20 @@
+/* BUTON STYLES */
+
+.btn {
+  position: relative;
+  border-radius: 4px;
+  width: 100%;
+  height: 40px;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+
+.btn-primary:hover {
+  background-color: #B03A48;
+}
+
+.btn-primary {
+  color: white;
+  background-color: var(--primary-color);
+}

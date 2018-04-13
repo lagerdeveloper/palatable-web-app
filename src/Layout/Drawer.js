@@ -1,8 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 import CloseIcon from 'react-icons/lib/md/close';
-import logo from '../Images/palatable_red_logo.svg';
 import './Layout.css';
 import './Drawer.css';
 
