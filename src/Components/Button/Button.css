@@ -8,6 +8,11 @@
   border: none;
   cursor: pointer;
   outline: none;
+  background-color: var(--btn-default-color);
+}
+
+.btn:hover {
+  background-color: var(--light-grey);
 }
 
 .btn-primary:hover {

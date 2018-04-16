@@ -1,0 +1,36 @@
+.dropdown {
+  position: relative;
+  width: 100%;
+}
+
+.dropdown-trigger{
+  padding-left: 10px;
+  width: 100%;
+}
+
+.dropdown-trigger.active {
+  box-shadow: 0 0 1px rgba(192, 192, 192, 0.2);
+}
+
+.dropdown-content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  visibility: hidden;
+  position: absolute;
+  z-index: 1;
+  background-color: white;
+  box-shadow: 0 1px 1px rgba(192, 192, 192, 0.2), 0 2px 1px rgba(192, 192, 192, 0.19);
+}
+
+.dropdown-item {
+  display: flex;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.show-dropdown {
+  visibility: visible;
+}

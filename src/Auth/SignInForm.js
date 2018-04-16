@@ -25,7 +25,7 @@ const LoginInput = ({ input, meta }) => {
     <Input
       icon={<PersonIcon />}
       placeholder='Email or Username'
-      type='text'
+      type='email'
       error={ touched && error ? error : undefined}
       {...input}
     />

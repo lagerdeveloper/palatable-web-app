@@ -23,7 +23,7 @@ const store = createStore(
   ),
 );
 axios.defaults.baseURL = process.env.NODE_ENV === 'production' ? 'https://palatable-api.herokuapp.com/api/' : '';
-axios.defaults.headers.common['Content-Type'] = 'application/json';
+//axios.defaults.headers.common['Content-Type'] = 'application/json';
 store.subscribe(() => {
   const auth = store.getState().auth;
   axios.defaults.headers.common['Authorization'] = `Bearer ${auth.jwt}`;

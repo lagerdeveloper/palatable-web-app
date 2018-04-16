@@ -7,6 +7,7 @@ body {
 :root {
   --primary-color: #EF5164;
   --secondary-color: #676767;
+  --btn-default-color: #E2E2E2;
   --light-grey: #C9C9C9;
   --focus-color: #216068;
   --error-color: #CA0000;

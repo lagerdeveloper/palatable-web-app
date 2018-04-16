@@ -35,7 +35,7 @@ const EmailInput = ({ input, meta }) => {
   return (
     <Input
       icon={<EmailIcon />}
-      type='text'
+      type='email'
       placeholder='Email'
       error={touched && error ? error : undefined}
       {...input}
