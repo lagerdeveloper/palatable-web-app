@@ -6,10 +6,12 @@
 }
 
 .input {
+  margin-left: 0.5rem;
   flex: 10;
   font-size: 16px;
   border: none;
   color: var(--secondary-color);
+  padding: 0;
 }
 
 .input::placeholder {
@@ -23,7 +25,6 @@
 .input-icon {
   flex: 1;
   margin-left: 0.5rem;
-  margin-right: 0.5rem;
   color: var(--light-grey);
   transition: 250ms ease-in-out;
 }

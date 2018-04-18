@@ -6,21 +6,68 @@ import './Dropdown.css';
 class Dropdown extends React.Component {
   constructor(props) {
     super(props);
-    this.triggerElement =
+    this.toggle = this.toggle.bind(this);
+    this.close = this.close.bind(this);
+    this.renderItem = this.renderItem.bind(this);
+    this.selectOption = this.selectOption.bind(this);
     this.state = {
       open: false,
+      selected: undefined,
     };
   }
 
-  render() {
+  componentWillUpdate(nextProps, nextState) {
+    const { open } = nextState;
+    if (open) {
+      document.addEventListener('click', this.close);
+    }
+  }
+
+  close() {
+    document.removeEventListener('click', this.close);
+    this.setState({ open: false });
+  }
+
+
+  toggle() {
     const { open } = this.state;
+    this.setState({ open: !open });
+  }
+
+  selectOption(option) {
+    const { onChange } = this.props;
+    if (onChange) {
+      onChange(option);
+    }
+    this.setState({ selected: option });
+  }
+
+  renderItem(option, i) {
+    //Extract props out of each option
+    const { onClick } = option;
+    return (
+      <div
+        key={i}
+        className="dropdown-item"
+        onClick={() => this.selectOption(option)}
+      >
+        {option.label}
+      </div>
+    );
+  }
+
+  render() {
+    const { open, selected } = this.state;
+    const { options, placeholder } = this.props;
     return (
       <div className="dropdown">
-        <div className='dropdown-trigger' onClick={e => this.setState({ open: !open })}>
-          Trigger Goes Here
+        <div className='dropdown-trigger' onClick={this.toggle}>
+          { selected && selected.label || placeholder || '' }
         </div>
         <div className={`dropdown-content ${open ? 'show-dropdown' : ''}`}>
-          <p className='dropdown-item'>Item 1</p>
+          {
+            options.map((option, i) => this.renderItem(option, i))
+          }
         </div>
       </div>
     )
@@ -31,15 +78,20 @@ class Dropdown extends React.Component {
 // ALLOWED PROP TYPES
 Dropdown.propTypes = {
   trigger: PropTypes.element,
-  options: PropTypes.shape({
-    label: PropTypes.node.isRequired,
-    value: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.number,
-      PropTypes.bool,
-    ]).isRequired,
-    icon: PropTypes.element,
-  }),
+  placeholder: PropTypes.string,
+  select: PropTypes.bool,
+  options: PropTypes.arrayOf(
+    PropTypes.shape({
+      label: PropTypes.node.isRequired,
+      value: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.number,
+        PropTypes.bool,
+      ]).isRequired,
+      icon: PropTypes.element,
+      onClick: PropTypes.func,
+    }).isRequired
+  )
 };
 
 

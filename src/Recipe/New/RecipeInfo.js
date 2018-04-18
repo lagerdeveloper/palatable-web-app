@@ -2,7 +2,6 @@ import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { Form, Header, Icon, Message } from 'semantic-ui-react';
 import { capitalize } from 'lodash/string';
-import { isUndefined } from 'lodash/lang';
 import validate from './validate';
 import Input from '../../Components/Input/Input';
 import Button from '../../Components/Button/Button';
@@ -78,7 +77,13 @@ const RecipeType = ({ input, meta }) => {
     //     value={input.value}
     //   />
     // </Form.Field>
-    <Dropdown />
+    <Dropdown
+      placeholder='Recipe Type'
+      options={recipeTypes.map((type, i) => ({
+        label: capitalize(type),
+        value: type,
+      }))}
+    />
   );
 };
 
