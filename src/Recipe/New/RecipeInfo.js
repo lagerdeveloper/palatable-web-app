@@ -5,6 +5,7 @@ import { capitalize } from 'lodash/string';
 import validate from './validate';
 import Input from '../../Components/Input/Input';
 import Button from '../../Components/Button/Button';
+import TextArea from '../../Components/TextArea/TextArea';
 import Dropdown from '../../Components/Dropdown/Dropdown';
 
 import './index.css';
@@ -22,12 +23,14 @@ const Name = ({ input, meta }) => {
   );
 };
 
-const Description = ({ input, meta }) => (
-  <Form.TextArea
-    placeholder='Description'
-    {...input}
-  />
-);
+const Description = ({ input, meta }) => {
+  return (
+    <TextArea
+      placeholder='Description'
+      {...input}
+    />
+  );
+};
 
 const Servings = ({ input, meta }) => {
   const { error, touched } = meta;
@@ -79,6 +82,7 @@ const RecipeType = ({ input, meta }) => {
     // </Form.Field>
     <Dropdown
       placeholder='Recipe Type'
+      onChange={(value) => input.onChange(value)}
       options={recipeTypes.map((type, i) => ({
         label: capitalize(type),
         value: type,

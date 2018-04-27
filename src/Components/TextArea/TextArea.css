@@ -1,0 +1,14 @@
+/* TEXT AREA STYLES */
+textarea {
+  overflow: hidden;
+  box-sizing: border-box;
+  padding-left: 7px;
+  width: 100%;
+  outline: none;
+  resize: none;
+  border: none;
+  border-bottom: 3px solid var(--light-grey);
+}
+textarea::placeholder {
+  color: var(--light-grey);
+}

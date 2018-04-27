@@ -28,6 +28,8 @@
 
 .dropdown-item {
   display: flex;
+  align-items: center;
+  height: 30px;
   padding-left: 0.5rem;
   padding-right: 0.5rem;
   padding-top: 0.25rem;
@@ -39,8 +41,10 @@
   background-color: var(--light-grey);
 }
 
+
+/* max-height of dropdown content when shown should be exactly x * dropdown-item height */
 .dropdown-content.show-dropdown {
-  max-height: 100px;
+  max-height: 150px;
   overflow: auto;
   transition: max-height 0.15s ease-out;
 }

@@ -37,7 +37,7 @@ class Dropdown extends React.Component {
   selectOption(option) {
     const { onChange } = this.props;
     if (onChange) {
-      onChange(option);
+      onChange(option.value);
     }
     this.setState({ selected: option });
   }
