@@ -10,8 +10,9 @@ class TextArea extends React.Component {
   autoResize(e) {
     const { offset } = this.state;
     // must set height to auto in order to update the scrollHeight (handles shrink)
-    this.textArea.style.height = 'auto';
-    this.textArea.style.height = `${e.target.scrollHeight + offset}px`;
+    e.target.style.height = 'auto';
+    console.log(e.target.scrollHeight);
+    e.target.style.height = `${e.target.scrollHeight + offset}px`;
   }
 
   componentDidMount() {
