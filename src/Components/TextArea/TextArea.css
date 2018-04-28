@@ -10,7 +10,12 @@ textarea {
   resize: none;
   border: none;
   border: 1px solid var(--light-grey);
+  transition: 250ms ease-in-out;
 }
 textarea::placeholder {
   color: var(--light-grey);
+}
+
+textarea:focus {
+  border: 1px solid var(--focus-color);
 }
