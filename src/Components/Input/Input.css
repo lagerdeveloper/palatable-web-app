@@ -1,14 +1,14 @@
 /* INPUT STYLES */
 
 .input-container {
+  cursor: text;
   width: 100%;
-  margin-bottom: 10px;
+  margin-bottom: 1em;
 }
 
 .input {
-  margin-left: 0.5rem;
+  height: 100%;
   flex: 10;
-  font-size: 16px;
   border: none;
   color: var(--secondary-color);
   padding: 0;
@@ -24,25 +24,27 @@
 
 .input-icon {
   flex: 1;
-  margin-left: 0.5rem;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
   color: var(--light-grey);
   transition: 250ms ease-in-out;
 }
 
 .input-group {
-  padding-bottom: 2px;
+  padding: 0.5em 0.75em;
   display: flex;
   align-items: center;
-  border-bottom: 3px solid var(--light-grey);
+  border: 1px solid var(--light-grey);
+  border-radius: 4px;
   transition: 250ms ease-in-out;
 }
 
 .input-group.focus {
-  border-bottom: 3px solid var(--focus-color);
+  border: 1px solid var(--focus-color);
 }
 
 .input-group.error {
-  border-bottom: 3px solid var(--error-color);
+  border: 1px solid var(--error-color);
 }
 
 .focus {
@@ -50,8 +52,6 @@
 }
 
 .error-message {
-  opacity: 0;
-  min-height: 20px;
   width: 100%;
   color: var(--error-color);
   transition: 250ms ease-in-out;

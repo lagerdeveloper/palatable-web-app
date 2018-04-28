@@ -6,9 +6,10 @@
 .dropdown-trigger {
   cursor: pointer;
   color: var(--light-grey);
-  padding-left: 0.5rem;
   width: 100%;
-  border-bottom: 3px solid var(--light-grey);
+  padding: 0.5em 0.75em;
+  border-radius: 4px;
+  border: 1px solid var(--light-grey);
 }
 
 .dropdown-trigger.active {
@@ -19,6 +20,7 @@
   width: 100%;
   position: absolute;
   max-height: 0;
+  top: 100%;
   overflow-y: hidden;
   transition: max-height 0.15s ease-in;
   z-index: 1;
@@ -30,10 +32,7 @@
   display: flex;
   align-items: center;
   height: 30px;
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
-  padding-top: 0.25rem;
-  padding-bottom: 0.25rem;
+  padding-left: 0.75em;
   cursor: pointer;
 }
 

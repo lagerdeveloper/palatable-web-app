@@ -13,3 +13,8 @@ body {
   --error-color: #CA0000;
   /* --focus-color: #37C7D3; */
 }
+
+
+.container {
+  padding: 2em 3em;
+}

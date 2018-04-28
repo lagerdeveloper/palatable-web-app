@@ -7,6 +7,7 @@ class MyInput extends React.Component {
     super(props);
     this.onFocus = this.onFocus.bind(this);
     this.onBlur = this.onBlur.bind(this);
+    this.focusInput = this.focusInput.bind(this);
     this.determineInputGroupStyle = this.determineInputGroupStyle.bind(this);
     this.state = {
       focused: false,
@@ -47,22 +48,27 @@ class MyInput extends React.Component {
     }
   }
 
+  focusInput() {
+    this.input.focus();
+  }
+
   render() {
     const { error } = this.state;
     const inputGroupStyle = this.determineInputGroupStyle();
     const { onFocus, onBlur, icon, ...rest } = this.props;
     return (
-      <div className="input-container">
+      <div className="input-container" onClick={this.focusInput}>
         <div className={`input-group ${inputGroupStyle}`}>
           {icon && React.cloneElement(icon, { className: `input-icon ${inputGroupStyle}`, size: 25 }) }
           <input
+            ref={input => this.input = input}
             onFocus={e => this.onFocus(e) }
             onBlur={e => this.onBlur(e) }
             className="input"
             {...rest}
           />
         </div>
-        <p className={`error-message ${error ? 'visible' : ''}`}>{error}</p>
+        {error && <p className='error-message'>{error}</p> }
       </div>
     );
   }

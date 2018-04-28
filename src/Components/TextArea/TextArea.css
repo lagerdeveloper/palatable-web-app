@@ -1,14 +1,15 @@
 /* TEXT AREA STYLES */
 textarea {
+  border-radius: 4px;
   overflow: hidden;
   box-sizing: border-box;
   min-height: 75px;
-  padding-left: 7px;
+  padding: 0.5em 0.75em;
   width: 100%;
   outline: none;
   resize: none;
   border: none;
-  border-bottom: 3px solid var(--light-grey);
+  border: 1px solid var(--light-grey);
 }
 textarea::placeholder {
   color: var(--light-grey);

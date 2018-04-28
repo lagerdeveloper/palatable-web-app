@@ -37,7 +37,7 @@ class NewRecipeForm extends Component {
 
   render() {
     return (
-      <div className='new-recipe-container'>
+      <div className='container'>
         { this.renderSection() }
       </div>
     );
