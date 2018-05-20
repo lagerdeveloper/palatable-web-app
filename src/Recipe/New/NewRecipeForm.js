@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Step } from 'semantic-ui-react';
 import RecipeInfo from './RecipeInfo';
 import Ingredients from './Ingredients';
+import RecipeImages from './RecipeImages';
 import './index.css';
 
 
@@ -11,7 +12,7 @@ class NewRecipeForm extends Component {
     this.nextSection = this.nextSection.bind(this);
     this.prevSection = this.prevSection.bind(this);
     this.state = {
-      section: 1,
+      section: 3,
     }
   }
 
@@ -30,6 +31,8 @@ class NewRecipeForm extends Component {
         return <RecipeInfo onSubmit={this.nextSection} />;
       case 2:
         return <Ingredients onSubmit={this.nextSection} prevSection={this.prevSection} />;
+      case 3:
+        return <RecipeImages />
       default:
         return <p>AN ERROR OCCURED</p>;
     }

@@ -3,23 +3,23 @@ import { reduxForm, FieldArray, Field, clearFields } from 'redux-form';
 import {
   Header,
   Form,
-  Input,
-  Button,
   Message,
 } from 'semantic-ui-react';
 
+import Button from '../../Components/Button/Button';
+import Input from '../../Components/Input/Input';
 import validate from './validate';
 
 import './index.css';
 
 const renderIngredient = ({ index, fields, input, meta: { invalid, touched } }) => (
-  <Form.Field inline error={invalid}>
-    <Input className='ingredient-input' error={touched && invalid} placeholder="Ingredient goes here!" {...input} />
+  <div className='ingredient'>
+    <Input
+      error={touched && invalid ? invalid : undefined}
+      placeholder="Ingredient goes here!"
+      {...input}
+    />
     <Button
-      type="button"
-      circular
-      className="close-btn"
-      icon='close'
       onClick={(e) => {
         e.preventDefault();
         // Clear the field
@@ -30,8 +30,8 @@ const renderIngredient = ({ index, fields, input, meta: { invalid, touched } }) 
           fields.remove(index);
         }
       }}
-    />
-  </Form.Field>
+    >Remove</Button>
+  </div>
 );
 
 const renderIngredients = ({ fields, meta: { error, submitFailed } }) => {
@@ -55,21 +55,18 @@ const renderIngredients = ({ fields, meta: { error, submitFailed } }) => {
         type="button"
         icon='add'
         onClick={(e) => { e.preventDefault(); fields.push();}}
-      />
+      >Add</Button>
     </div>
   );
 };
 
 const Ingredients = (props) => {
   return (
-    <div className="ingredients-card">
-      <Header as='h2' textAlign="center">Ingredients</Header>
-      <Form onSubmit={props.handleSubmit}>
-        <FieldArray name='ingredients' component={renderIngredients} />
-        <Button type="button" onClick={props.prevSection}>Back</Button>
-        <Button type="submit">Add Directions</Button>
-      </Form>
-    </div>
+    <form onSubmit={props.handleSubmit}>
+      <FieldArray name='ingredients' component={renderIngredients} />
+      <Button type="button" onClick={props.prevSection}>Back</Button>
+      <Button type="submit">Add Directions</Button>
+    </form>
   );
 };
 
